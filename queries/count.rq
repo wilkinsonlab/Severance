@@ -1,0 +1,21 @@
+#+ summary: Returns the number of patients in the registry with the corresponding disease code
+#+ tags:
+#+   - Patient Count
+#+ defaults:
+#+   - type: http://www.orpha.net/ORDO/Orphanet_98896
+#+ endpoint_in_url: False
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ofn: <http://www.ontotext.com/sparql/functions/>
+
+select (COUNT(?disattribute) as ?count) where { 
+?disprocess a  <http://purl.obolibrary.org/obo/NCIT_C18020> ; # diagnostic process
+            sio:SIO_000229 ?disoutput .
+?disoutput a <http://purl.obolibrary.org/obo/NCIT_C154625>; # diagnosis code
+           sio:SIO_000628 ?disattribute.
+?disattribute a ?{{orphacode}} .  # attribute is a orphacode
+}
