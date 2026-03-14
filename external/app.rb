@@ -71,7 +71,7 @@ def submit_job
   body ''
 end
 
-# ============== User polling ==============
+# ============== Polling from gateway Hub ==============
 get '/jobs/:uuid' do |uuid|
   pending = "#{QUEUE_DIR}/#{uuid}.pending.json"
   processing = "#{QUEUE_DIR}/#{uuid}.processing.json"
@@ -84,8 +84,8 @@ get '/jobs/:uuid' do |uuid|
   elsif File.exist?(result_file)
     data = decrypt(File.binread(result_file))
     content_type CONTENT_TYPE
-    File.delete(result_file)          # delete after delivery (as requested)
-    # Optional cleanup of any leftover .processing
+    File.delete(result_file)          # delete after delivery 
+    # cleanup of any leftover .processing
     File.delete(processing) if File.exist?(processing)
     body data
   else
@@ -94,7 +94,7 @@ get '/jobs/:uuid' do |uuid|
   end
 end
 
-# ============== Internal result push ==============
+# ============== Internal results push ==============
 post '/jobs/:uuid/result' do |uuid|
   body = request.body.read
   result_file = "#{RESULTS_DIR}/#{uuid}.enc"
@@ -107,7 +107,7 @@ post '/jobs/:uuid/result' do |uuid|
   body ''
 end
 
-# ============== Internal poll (one job at a time) ==============
+# ============== Called from Internal poll (one job at a time) ==============
 get '/queue/pull' do
   pending_files = Dir["#{QUEUE_DIR}/*.pending.json"].sort
   if pending_files.empty?
