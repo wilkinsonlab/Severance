@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'fileutils'
 
-EXTERNAL_URL   = ENV.fetch('EXTERNAL_URL')
+EXTERNAL_URL = ENV.fetch('EXTERNAL_URL')
 TRIPLESTORE_URL = ENV.fetch('TRIPLESTORE_URL')
 QUERY_DIR      = ENV.fetch('QUERY_DIR')
 POLL_INTERVAL  = ENV.fetch('POLL_INTERVAL', 10).to_i
@@ -12,7 +12,7 @@ ACCEPT_HEADER = RESULT_FORMAT == 'csv' ? 'text/csv' : 'application/sparql-result
 
 def escape_for_sparql(value)
   v = value.to_s
-  if v.match?(/\Ahttps?:\/\//)
+  if v.match?(%r{\Ahttps?://})
     "<#{v.gsub('>', '%3E')}>"
   else
     "\"#{v.gsub('"', '\\"').gsub("\n", '\\n')}\""
@@ -25,7 +25,7 @@ end
 
 loop do
   # === Poll External ===
-  poll_uri = URI("#{EXTERNAL_URL}/queue/pull")
+  poll_uri = URI("#{EXTERNAL_URL}/bthere/queue/pull")
   response = Net::HTTP.get_response(poll_uri)
 
   if response.code == '204'
@@ -34,7 +34,9 @@ loop do
   end
 
   job = JSON.parse(response.body)
-  uuid      = job['uuid'] || File.basename(poll_uri.path) # fallback
+  uuid = job['uuid']
+  raise 'No UUID in job response!' unless uuid # safety
+
   query_id  = job['query_id']
   bindings  = job['bindings'] || {}
 
@@ -46,11 +48,12 @@ loop do
   end
 
   query = File.read(query_path)
-
+  warn "found query #{query}"
   # === Bind placeholders {{key}} ===
   bindings.each do |k, v|
     placeholder = "{{#{k}}}"
     query.gsub!(placeholder, escape_for_sparql(v))
+    warn "substituted query #{query}"
   end
 
   validate_query(query) # stub
@@ -65,14 +68,27 @@ loop do
   res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
     http.request(req)
   end
-
+  warn "HTTP result: #{res.inspect}"
   result_body = res.body
+  warn "Query result: #{result_body}"
+  result_body = res.body.strip # remove leading/trailing whitespace
 
   # === Push result back to External ===
-  push_uri = URI("#{EXTERNAL_URL}/jobs/#{uuid}/result")
+  push_uri = URI("#{EXTERNAL_URL}/bthere/jobs/#{uuid}/result")
   push_req = Net::HTTP::Post.new(push_uri)
-  push_req.body = result_body
-  Net::HTTP.start(push_uri.hostname, push_uri.port) { |http| http.request(push_req) }
+  push_req['Content-Type'] = 'text/plain; charset=utf-8' # or 'application/json; charset=utf-8'
+  push_req.body = result_body.force_encoding('UTF-8')
+
+  warn "Pushing result of length #{result_body.bytesize} bytes"
+  preview_bytes = result_body.bytes[0..31]
+  hex_preview = preview_bytes.map { |b| format('%02x', b) }.join
+  warn "Result hex preview: #{hex_preview}"
+  warn "Result ends with: #{result_body[-10..-1].inspect}"
+
+  res = Net::HTTP.start(push_uri.hostname, push_uri.port) { |http| http.request(push_req) }
+  warn "HTTP PUSH result: #{res.inspect}"
+  result_body = res.body
+  warn "PUSH body: #{result_body}"
 
   puts "[#{Time.now}] Job #{uuid} completed"
 end

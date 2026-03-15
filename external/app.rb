@@ -4,26 +4,23 @@ require 'securerandom'
 require 'openssl'
 require 'fileutils'
 
-
-
 configure do
   set :server, 'puma'
   set :bind, '0.0.0.0'
   set :port, ENV.fetch('PORT', 4567).to_i
-  set :host_authorization, permitted_hosts: [
-    '127.0.0.1',
-    'localhost',
-    '127.0.0.1:8282',
-    'localhost:8282',
-    'fairdata.services',          # for proxied requests
-    'fairdata.services:80',       # if port explicit
-    'fairdata.services:443'       # if HTTPS
-  ]
+  set :protection, except: :host_authorization
+  # set :host_authorization, permitted_hosts: [
+  #   '127.0.0.1',
+  #   'localhost',
+  #   '127.0.0.1:8282',
+  #   'localhost:8282',
+  #   'fairdata.services',          # for proxied requests
+  #   'fairdata.services:80',       # if port explicit
+  #   'fairdata.services:443'       # if HTTPS
+  # ]
 end
-# set :protection, except: :host_authorization
 # OR fully disable HostAuthorization while keeping others:
 # set :protection, host_authorization: { permitted_hosts: ['fairdata.services', 'localhost'] }
-
 
 QUEUE_DIR = ENV.fetch('QUEUE_DIR', '/data/queue')
 RESULTS_DIR = ENV.fetch('RESULTS_DIR', '/data/results')
@@ -57,9 +54,34 @@ end
 
 # ============== Token stub (uncomment to enforce) ==============
 before do
-  if ENV['AUTH_TOKEN']
-    halt 401 unless request.env['HTTP_AUTHORIZATION'] == "Bearer #{ENV['AUTH_TOKEN']}"
+  # by default, allowed IPs are all localhost clones.  Should set in the docker-compose, though
+  allowed_ips = (ENV['ALLOWED_INTERNAL_IPS'] || '127.0.0.1,172.17.0.0/16,10.0.0.0/8').split(',')
+  client_ip = request.ip
+
+  # these are the paths that are called from the Inner component
+  # Handle them differently - no authentication, but IP filter
+  if request.path_info.start_with?('/bthere/queue/pull') ||
+     request.path_info.start_with?('/bthere/jobs/') &&
+     request.request_method == 'POST'
+    warn 'this is an internal request'
+    # Basic CIDR check (or use 'ipaddr' gem, but we're trying to be thin)
+    unless allowed_ips.any? { |ip| client_ip.start_with?(ip.strip) || client_ip == ip.strip }
+      halt 403, "Access denied to #{client_ip}- internal IP required"
+    end
+    # all checks pass, it is a call from Internal - bypass authentication
+    return
   end
+
+  # Only apply auth to everything else (user/Hub facing)
+  if ENV['AUTH_TOKEN']
+    auth_header = request.env['HTTP_AUTHORIZATION']
+    expected = "Bearer #{ENV['AUTH_TOKEN']}"
+    halt 401, "Unauthorized auth:#{auth_header}- Bearer token required" unless auth_header == expected
+  end
+end
+
+# =========== Limit IP range for polling and pushing results ===
+before do
 end
 
 # ============== Submit (POST or GET) ==============
@@ -69,6 +91,10 @@ end
 
 get '/bthere/queries' do
   submit_job
+end
+
+get '/bthere' do
+  'Nothing to see here yet. Should probably redirect somewhere useful... Registry Hub??'
 end
 
 def submit_job
@@ -84,7 +110,7 @@ def submit_job
   File.write("#{QUEUE_DIR}/#{uuid}.pending.json", job)
 
   status 201
-  headers 'Location' => "#{request.base_url}/jobs/#{uuid}"
+  headers 'Location' => "#{request.base_url}/bthere/jobs/#{uuid}"
   body ''
 end
 
@@ -99,25 +125,37 @@ get '/bthere/jobs/:uuid' do |uuid|
     headers 'Retry-After' => '10'
     body '{"status":"processing"}'
   elsif File.exist?(result_file)
-    data = decrypt(File.binread(result_file))
-    content_type CONTENT_TYPE
-    File.delete(result_file)          # delete after delivery 
-    # cleanup of any leftover .processing
-    File.delete(processing) if File.exist?(processing)
-    body data
-  else
-    status 404
-    body '{"error":"job not found"}'
+    begin
+      encrypted = File.binread(result_file)
+      # puts "[DEBUG] Encrypted file size: #{encrypted.bytesize} bytes" # log size
+      data = decrypt(encrypted)
+      # puts "[DEBUG] Decrypted size: #{data.bytesize} bytes, first 50 chars: #{data[0..50].inspect}"
+      content_type CONTENT_TYPE
+      File.delete(result_file)
+      File.delete(processing) if File.exist?(processing)
+      body data
+    rescue OpenSSL::Cipher::CipherError => e
+      warn "[ERROR] Decryption failed for #{uuid}: #{e.message}"
+      status 500
+      body "Decryption error: #{e.message}"
+    rescue StandardError => e
+      warn "[ERROR] Unexpected error serving #{uuid}: #{e.message}"
+      status 500
+      body 'Server error'
+    end
   end
 end
 
 # ============== Internal results push ==============
 post '/bthere/jobs/:uuid/result' do |uuid|
-  body = request.body.read
+  body = request.body.read.force_encoding('UTF-8')
+  # warn "[External] Received body length after encoding: #{body.bytesize}\n#{body}"
   result_file = "#{RESULTS_DIR}/#{uuid}.enc"
   processing = "#{QUEUE_DIR}/#{uuid}.processing.json"
 
-  File.binwrite(result_file, encrypt(body))
+  encrypted_data = encrypt(body)
+  # warn "[ENCRYPT] Encrypted length: #{encrypted_data.bytesize} bytes"
+  File.binwrite(result_file, encrypted_data)
   File.delete(processing) if File.exist?(processing)
 
   status 200
@@ -136,6 +174,8 @@ get '/bthere/queue/pull' do
     job = File.read(file)
     File.rename(file, "#{QUEUE_DIR}/#{uuid}.processing.json")
     content_type 'application/json'
-    body job
+    body job # ← OLD: missing uuid
+    # NEW: include uuid in JSON so Internal knows it
+    body JSON.parse(job).merge('uuid' => uuid).to_json
   end
 end

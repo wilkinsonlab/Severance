@@ -1,9 +1,14 @@
 version: '3.9'
 services:
   external:
-    build: ./external
+    # build: ./external
+    image: barely-there-external:0.0.1
     ports: ["4567:4567"]
     volumes: ["./data:/data"]
     environment:
-      - ENCRYPTION_KEY_HEX=...
-      - RESULT_FORMAT=json
+      - ENCRYPTION_KEY_HEX=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+      - RESULT_FORMAT=csv
+      - AUTH_TOKEN=YesItsMe
+      - RACK_ENV=production
+      - APP_ENV=production     # both for redundancy
+      - ALLOWED_INTERNAL_IPS=172.29.0.1,127.0.0.1,172.17.0.0/16,10.0.0.0/8
