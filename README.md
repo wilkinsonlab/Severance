@@ -13,7 +13,7 @@ The name comes from the popular TV series [Severance](en.wikipedia.org/wiki/Seve
 <img src="./docs/Severence%20Functionality.png"/>
 
 **Interoperability and Security Features:**
-1. Requires Registry Hub authorization token
+1. Requires an authorization token (from whatever mechanism you wish)
 2. Queries are named and pre-approved, not arbitrary;
 3. The query itself is never passed.  It exists only in the internal component. refered-to by name
 4. Follows Web standards for queued processes
