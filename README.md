@@ -1,4 +1,4 @@
-<img src="./docs/severence_logo.png"/>
+<img src="./docs/SeverenceSM.png"/>
 
 # Severence: Secure SPARQL Service
 
