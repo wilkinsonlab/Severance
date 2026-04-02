@@ -6,5 +6,7 @@ A highly secure, very lightweight, query system
 
 ## Severed for Security: Your Queries Stay Innie
 
+**Query Flow Diagram**
 
+<img src="Severence%20Functionality.png"/>
 
