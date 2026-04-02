@@ -1,8 +1,10 @@
+#+ query_id: count
+#+ title: Count matching patients
 #+ summary: Returns the number of patients in the registry with the corresponding disease code
 #+ tags:
 #+   - Patient Count
 #+ defaults:
-#+   - type: http://www.orpha.net/ORDO/Orphanet_98896
+#+   - orphacode: http://www.orpha.net/ORDO/Orphanet_98896
 #+ endpoint_in_url: False
 
 PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -17,5 +19,5 @@ select (COUNT(?disattribute) as ?count) where {
             sio:SIO_000229 ?disoutput .
 ?disoutput a <http://purl.obolibrary.org/obo/NCIT_C154625>; # diagnosis code
            sio:SIO_000628 ?disattribute.
-?disattribute a {{orphacode}} .  # attribute is a orphacode
+?disattribute a ?_orphacode_iri .  # attribute is a orphacode
 }

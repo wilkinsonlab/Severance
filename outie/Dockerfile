@@ -8,8 +8,8 @@ RUN apt-get update -qq && \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user/group
-RUN groupadd -r barelythere && \
-    useradd -r -g barelythere -d /app -s /sbin/nologin -c "Docker app user" barelythere
+RUN groupadd -r severance && \
+    useradd -r -g severance -d /app -s /sbin/nologin -c "Docker app user" severance
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --jobs 4 --retry 3
 
 # Copy app + entrypoint
-COPY app.rb .
+COPY outie.rb .
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
@@ -28,8 +28,8 @@ RUN mkdir -p /data/queue /data/results
 # VOLUME declaration (Docker knows this is a mount point)
 VOLUME /data
 
-ENV PORT=4567
-EXPOSE 4567
+ENV PORT=3000
+EXPOSE 3000
 
-# Start as root → entrypoint will chown then drop to barelythere
+# Start as root → entrypoint will chown then drop to severance
 ENTRYPOINT ["./entrypoint.sh"]

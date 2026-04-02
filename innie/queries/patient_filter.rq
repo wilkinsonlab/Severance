@@ -1,0 +1,37 @@
+#+ query_id: patient_filter
+#+ title: Get Persons with Filters
+#+ summary: Retrieves persons with optional filters
+#+ description: Returns persons matching name pattern, age range, country, and active status. Supports pagination.
+
+#+ endpoint: https://example.org/sparql
+#+ method: GET
+#+ pagination: 50
+#+ tags:
+#+   - persons
+#+   - filter
+
+#+ defaults:
+#+   - name: "John"
+#+   - minAge: 18
+#+   - active: true
+
+#+ enumerate:
+#+   - country:
+#+     - http://example.org/countries/Spain
+#+     - http://example.org/countries/France
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ex:   <http://example.org/>
+
+SELECT ?person ?name ?age ?country
+WHERE {
+  ?person a foaf:Person ;
+          foaf:name ?_name_string ;
+          ex:age ?_age_integer ;
+          ex:country ?_country_iri .
+
+  FILTER(?_age_integer >= ?_minAge_integer)
+  FILTER(?_age_integer <= ?_maxAge_integer)
+
+  OPTIONAL { ?person ex:active ?_active_boolean }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "query_id": "count",
+    "tags": [
+
+    ],
+    "variables": [
+      "orphacode"
+    ],
+    "variable_types": {
+      "orphacode": "iri"
+    },
+    "bindings": {
+    }
+  },
+  {
+    "query_id": "patient_filter",
+    "tags": [
+
+    ],
+    "variables": [
+      "name",
+      "age",
+      "country",
+      "minAge",
+      "maxAge",
+      "active"
+    ],
+    "variable_types": {
+      "name": "string",
+      "age": "integer",
+      "country": "iri",
+      "minAge": "integer",
+      "maxAge": "integer",
+      "active": "boolean"
+    },
+    "bindings": {
+    }
+  }
+]

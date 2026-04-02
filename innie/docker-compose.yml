@@ -1,11 +1,6 @@
-version: '3.9'
 services:
-  internal:
+  innie:
     network_mode: host
-    build: ./internal
-    environment:
-      - EXTERNAL_URL=http://external:4567
-      - TRIPLESTORE_URL=http://your-triplestore:3030/sparql
-      - ENCRYPTION_KEY_HEX=...
-      - RESULT_FORMAT=json
-      - QUERY_DIR=/queries
+    image: innie
+    env_file: .env
+
