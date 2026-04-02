@@ -1,3 +1,5 @@
+<img src="./docs/severence_logo.png"/>
+
 # Severence: Secure SPARQL Service
 
 A highly secure, very lightweight, query system
