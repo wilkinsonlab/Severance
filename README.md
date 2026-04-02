@@ -4,7 +4,7 @@
 
 A highly secure, very lightweight, query system
 
-## Severed for Security: Your Queries Stay Innie
+## Severed for Security: Users are Outie, Queries stay Innie
 
 **Query Flow Diagram**
 
