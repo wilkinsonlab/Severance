@@ -1,5 +1,5 @@
 services:
-  outie:
+  external:
 #    build: ./
     image: outie
     ports: ["3000:3000"]

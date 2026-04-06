@@ -1,5 +1,5 @@
 services:
-  innie:
+  internal:
     network_mode: host
     image: innie
     env_file: .env
