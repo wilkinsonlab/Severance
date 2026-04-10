@@ -23,7 +23,7 @@
     ENCRYPTION_KEY_HEX=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
     RESULT_FORMAT=csv  # must be the same as the External component!
     QUERY_DIR=/queries  # DO NOT CHANGE THIS unless you really know what you're doing
-    EXTERNAL_URL=http://111.111.111.111:3000   # The URL to the External API. 
+    EXTERNAL_URL=http://111.111.111.111:3000   # The URL to the External API.  
     TRIPLESTORE_URL=http://localhost:7200/repositories/MyREPO  # make sure you create the readonly user
     TRIPLESTORE_USER = markw
     TRIPLESTORE_PASS = markw
@@ -49,3 +49,11 @@ The setting `network mode: host` is critical!  The internal code inside of the d
 **You should not start Internal until you have installed and tested External**.  You will need to do some testing on External that will be interrupted by the polling from Internal.
 
 `docker-compose up -d`
+
+
+## QUERIES
+
+In the ./queries folder there are some examples of annotated queries that can be interpreted by Severance Internal.
+
+We provide some [guidance for how to author these queries](./queries/README.md) so that they can be interpreted by Severance and used to build a sensible UI on the External side, and also to help them be more universally discoverable based on their Query Type.
+

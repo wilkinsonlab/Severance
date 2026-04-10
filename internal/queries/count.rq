@@ -1,4 +1,6 @@
 #+ query_id: count
+#+ version: 1.0.0
+#+ query_type: https://w3id.org/euro-nmd-kpis#KPI_000008
 #+ title: Count matching patients
 #+ summary: Returns the number of patients in the registry with the corresponding disease code
 #+ tags:
