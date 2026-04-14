@@ -26,6 +26,54 @@ RESULT_FORMAT = ENV['RESULT_FORMAT'] == 'csv' ? 'csv' : 'json'
 # Accept header sent to the triplestore
 ACCEPT_HEADER = RESULT_FORMAT == 'csv' ? 'text/csv' : 'application/sparql-results+json'
 
+# AES-256-GCM encryption key derived from hex environment variable
+ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX')].pack('H*')
+
+# ============== AES-256-GCM helpers ==============
+
+# Encrypts data using AES-256-GCM.
+#
+# @param data [String] Plaintext data to encrypt
+# @return [String] Encrypted binary data (nonce + tag + ciphertext)
+# Note: This method aggressively attempts to zero out the plaintext data after
+# encryption to minimize in-memory exposure.
+# Warning: While this method tries to reduce the risk of sensitive data lingering in memory,
+# it cannot guarantee complete security due to Ruby's memory management and string immutability.
+# Use with caution and consider additional security measures if handling highly sensitive data.
+def encrypt(data)
+  # Work on a binary copy
+  data = data.dup.force_encoding(Encoding::BINARY)
+
+  cipher = OpenSSL::Cipher.new('aes-256-gcm')
+  cipher.encrypt
+  cipher.key = ENCRYPTION_KEY
+  nonce = cipher.random_iv
+  ciphertext = cipher.update(data) + cipher.final
+  tag = cipher.auth_tag
+
+  # Zero out our working copy before returning
+  data.replace("\0" * data.bytesize)
+  data.clear
+  nonce + tag + ciphertext
+end
+
+# Decrypts data previously encrypted with {#encrypt}.
+#
+# @param encrypted [String] Binary encrypted data (nonce + tag + ciphertext)
+# @return [String] Decrypted plaintext
+# @raise [OpenSSL::Cipher::CipherError] if decryption fails (wrong key, tampered data, etc.)
+def decrypt(encrypted)
+  cipher = OpenSSL::Cipher.new('aes-256-gcm')
+  cipher.decrypt
+  cipher.key = ENCRYPTION_KEY
+  nonce = encrypted[0, 12]
+  tag = encrypted[12, 16]
+  ct = encrypted[28..]
+  cipher.iv = nonce
+  cipher.auth_tag = tag
+  cipher.update(ct) + cipher.final
+end
+
 # ------------------------------------------------------------------
 # Helper: Escape value for safe insertion into SPARQL
 # ------------------------------------------------------------------
@@ -220,14 +268,40 @@ loop do
   end
 
   warn "SPARQL SERVER: HTTP result status: #{res.code}"
-  result_body = res.body.strip
-  # === Push result back to External ===
+
+  # ====================== SECURE RESULT HANDLING ======================
+  begin
+    # 1. Immediately duplicate the body as BINARY
+    plaintext = res.body.dup.force_encoding(Encoding::BINARY)
+    # 2. Encrypt our copy immediately
+    encrypted_result = encrypt(plaintext)
+
+    # 3. Zero out the ORIGINAL response body inside Net::HTTPResponse
+    if res.body
+      res.body.replace("\0" * res.body.bytesize)   # overwrite with zeros
+      res.body.clear                               # release buffer
+    end
+    # 4. Aggressively zero our working plaintext
+    plaintext.replace("\0" * plaintext.bytesize)
+    plaintext.clear
+    plaintext = nil
+  ensure
+    # Final cleanup
+    plaintext = nil
+    # Optional: encourage Garbage Collection to reclaim the memory faster
+    GC.start(full_mark: true, immediate_sweep: true) if defined?(GC)
+  end
+  # warn "Result size before encryption: #{result_body.bytesize} bytes"
+  # warn "Encrypted size: #{encrypted_result.bytesize} bytes"
+
+  # === Push encrypted result to external service ===
   push_uri = URI("#{EXTERNAL_URL}/severance/jobs/#{uuid}/result")
   http = Net::HTTP.new(push_uri.hostname, push_uri.port)
   http.use_ssl = (push_uri.scheme == 'https')
+
   push_req = Net::HTTP::Post.new(push_uri)
-  push_req['Content-Type'] = 'text/plain; charset=utf-8'
-  push_req.body = result_body.force_encoding('UTF-8')
+  push_req['Content-Type'] = 'application/octet-stream'   # ← changed for binary encrypted data
+  push_req.body = encrypted_result                        # binary data, do NOT force_encoding to UTF-8
 
   push_res = http.request(push_req)
   warn "Job #{uuid} completed (push status: #{push_res.code})"

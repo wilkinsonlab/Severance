@@ -197,22 +197,36 @@ end
 # @return [200] with result (and deletes files) if completed
 # @return [404] if job not found
 get '/severance/jobs/:uuid' do |uuid|
-  pending = "#{QUEUE_DIR}/#{uuid}.pending.json"
-  processing = "#{QUEUE_DIR}/#{uuid}.processing.json"
+  pending     = "#{QUEUE_DIR}/#{uuid}.pending.json"
+  processing  = "#{QUEUE_DIR}/#{uuid}.processing.json"
   result_file = "#{RESULTS_DIR}/#{uuid}.enc"
 
   if File.exist?(pending) || File.exist?(processing)
     status 202
     headers 'Retry-After' => '10'
     body '{"status":"processing"}'
+
   elsif File.exist?(result_file)
+    plaintext = nil
+
     begin
       encrypted = File.binread(result_file)
-      data = decrypt(encrypted)
+
+      # Decrypt
+      plaintext = decrypt(encrypted)
+
+      # Send the response to the client
       content_type CONTENT_TYPE
-      File.delete(result_file)
+      body plaintext
+
+      # === ZERO OUT immediately after sending ===
+      plaintext&.replace("\0" * plaintext.bytesize)
+      plaintext&.clear
+      plaintext = nil
+
+      # Clean up files
+      File.delete(result_file) if File.exist?(result_file)
       File.delete(processing) if File.exist?(processing)
-      body data
     rescue OpenSSL::Cipher::CipherError => e
       warn "[ERROR] Decryption failed for #{uuid}: #{e.message}"
       status 500
@@ -221,7 +235,16 @@ get '/severance/jobs/:uuid' do |uuid|
       warn "[ERROR] Serving result #{uuid}: #{e.message}"
       status 500
       body 'Server error'
+    ensure
+      # Final safety net — zero out even if something went wrong
+      if plaintext
+        plaintext.replace("\0" * plaintext.bytesize)
+        plaintext.clear
+        plaintext = nil
+      end
+      GC.start(full_mark: true, immediate_sweep: true) if defined?(GC)
     end
+
   else
     status 404
     body '{"error":"not found"}'
@@ -234,18 +257,24 @@ end
 #
 # @param uuid [String] Job UUID
 post '/severance/jobs/:uuid/result' do |uuid|
-  body_content = request.body.read.force_encoding('UTF-8')
-  result_file = "#{RESULTS_DIR}/#{uuid}.enc"
-  processing = "#{QUEUE_DIR}/#{uuid}.processing.json"
+  # Read the incoming encrypted payload as raw binary
+  encrypted_data = request.body.read.force_encoding(Encoding::BINARY)
+  if encrypted_data.empty? || encrypted_data.bytesize < 28 # minimum size for AES-GCM (nonce+tag+ciphertext)
+    halt 400, 'Invalid or empty result data. Shutting down to prevent potential abuse.'
+  end
 
-  encrypted_data = encrypt(body_content)
+  result_file = "#{RESULTS_DIR}/#{uuid}.enc"
+  processing  = "#{QUEUE_DIR}/#{uuid}.processing.json"
+
+  # Write the already-encrypted data directly to disk
   File.binwrite(result_file, encrypted_data)
+
+  # Clean up the processing marker
   File.delete(processing) if File.exist?(processing)
 
   status 200
   body ''
 end
-
 # ============== Internal: Poll for next job ==============
 
 # Internal endpoint used by Innie to pull the next pending job.
