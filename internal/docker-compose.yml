@@ -9,8 +9,8 @@ services:
       - /tmp:size=64m,noexec,nosuid,nodev
     environment:
       - TMPDIR=/tmp
-      - UID=${UID:-1000}   # see .env file for how to set this
-      - GID=${GID:-1000}
+      - UID=${UID:-1000}   # see README file for how to set this
+      - GID=${GID:-1000}   # see README file for how to set this
 
     env_file: .env
     user: "${UID:-1000}:${GID:-1000}"   # Run container as your host user, or 1000 fallback (which is usually the first non-root user created on a Linux system)  
