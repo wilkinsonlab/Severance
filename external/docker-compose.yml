@@ -1,6 +1,6 @@
 services:
   external:
-    image: 
+    image: fairdatasystems/sevexternal:2026-04-16
     ports: ["3000:3000"]
     env_file:
       - .env

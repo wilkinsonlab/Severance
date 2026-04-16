@@ -3,18 +3,18 @@
   "Trivy": {
     "Version": "0.69.1"
   },
-  "ReportID": "019d975d-d193-74f2-aaee-78819cf34a29",
-  "CreatedAt": "2026-04-16T19:36:41.363328442+02:00",
-  "ArtifactID": "sha256:21308dd9136ed7dcd0c8daa91c5569194ddbddb0034b91adfb286f51c76d26f5",
+  "ReportID": "019d9763-a4a3-77ab-a102-dfa344c4ffb5",
+  "CreatedAt": "2026-04-16T19:43:03.075508753+02:00",
+  "ArtifactID": "sha256:b334d75c0c1934a948c7e900ba0200685bdbd8276ee956118fef62cbf1ef7e5f",
   "ArtifactName": "fairdatasystems/sevinternal:2026-04-16",
   "ArtifactType": "container_image",
   "Metadata": {
-    "Size": 496233472,
+    "Size": 497024000,
     "OS": {
       "Family": "debian",
       "Name": "13.4"
     },
-    "ImageID": "sha256:389590da40dfb5da4834ce1bc9f6a946b1052bafded478a16b9694d636333a10",
+    "ImageID": "sha256:a6946a73a84b544c9645e721816624dc059e9f042f4a8b5c7d3e86a870fa5337",
     "DiffIDs": [
       "sha256:60e70dddd9ea3b1c77c62fe78be1d9f485706b6fe6052c3d88612bd8f56acd67",
       "sha256:855c0a71a67c3d38b454eaeae812ba0a4096b56b5a55c3add8126fe911a776ae",
@@ -31,18 +31,18 @@
       "sha256:f82e80a61e1a18b742ba300c75fa61477446ce0dbc7d063510332d57c4f114c1",
       "sha256:b792e829975f69b4ba4d9067f9be54b7480a1ec9b0c89a6f273627b919b58c73",
       "sha256:713bd161afb2c11aea04f17d2cca95fe1e641ab50c763afb3d4d2178bfb7629f",
-      "sha256:401a5f954268aa8c5e4028d1c8ec167a5c9f04962195eaa821db3b90b86ffa65"
+      "sha256:20b6bc08c0cbc3ce9c91de5cc52539f831031fca9c13c306d4effcdf20fc15e4"
     ],
     "RepoTags": [
       "fairdatasystems/sevinternal:2026-04-16"
     ],
     "RepoDigests": [
-      "fairdatasystems/sevinternal@sha256:a2df1fd53b89ae0fd8a39b0bab6bbf77b3725f85e5f21e796b345a9b73d65074"
+      "fairdatasystems/sevinternal@sha256:464eeb01fb8b5268b7ad5ad905f4a8d2f0d752574b1b6407316db45888873521"
     ],
     "Reference": "fairdatasystems/sevinternal:2026-04-16",
     "ImageConfig": {
       "architecture": "amd64",
-      "created": "2026-04-16T17:36:14.932354086Z",
+      "created": "2026-04-16T17:42:32.332742607Z",
       "docker_version": "28.2.2",
       "history": [
         {
@@ -175,7 +175,7 @@
           "empty_layer": true
         },
         {
-          "created": "2026-04-16T17:36:14Z"
+          "created": "2026-04-16T17:42:32Z"
         }
       ],
       "os": "linux",
@@ -197,7 +197,7 @@
           "sha256:f82e80a61e1a18b742ba300c75fa61477446ce0dbc7d063510332d57c4f114c1",
           "sha256:b792e829975f69b4ba4d9067f9be54b7480a1ec9b0c89a6f273627b919b58c73",
           "sha256:713bd161afb2c11aea04f17d2cca95fe1e641ab50c763afb3d4d2178bfb7629f",
-          "sha256:401a5f954268aa8c5e4028d1c8ec167a5c9f04962195eaa821db3b90b86ffa65"
+          "sha256:20b6bc08c0cbc3ce9c91de5cc52539f831031fca9c13c306d4effcdf20fc15e4"
         ]
       },
       "config": {
@@ -279,8 +279,8 @@
         "DiffID": "sha256:713bd161afb2c11aea04f17d2cca95fe1e641ab50c763afb3d4d2178bfb7629f"
       },
       {
-        "Size": 3136000,
-        "DiffID": "sha256:401a5f954268aa8c5e4028d1c8ec167a5c9f04962195eaa821db3b90b86ffa65"
+        "Size": 3926528,
+        "DiffID": "sha256:20b6bc08c0cbc3ce9c91de5cc52539f831031fca9c13c306d4effcdf20fc15e4"
       }
     ]
   },
@@ -11575,7 +11575,7 @@
             "libssl3t64@3.5.5-1~deb13u1"
           ],
           "Layer": {
-            "DiffID": "sha256:401a5f954268aa8c5e4028d1c8ec167a5c9f04962195eaa821db3b90b86ffa65"
+            "DiffID": "sha256:20b6bc08c0cbc3ce9c91de5cc52539f831031fca9c13c306d4effcdf20fc15e4"
           },
           "InstalledFiles": [
             "/usr/lib/x86_64-linux-gnu/ossl-modules/legacy.so",
@@ -15494,7 +15494,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:a55a86c1779eedcf89e97983eaa81bd6aeaa74a5d48813e75886f914e38e15b9",
+          "Fingerprint": "sha256:4eb235ffb422f300835fa5e1a1cf41ac3792792c9a52c0503e8f0338ac74fbaa",
           "Title": "ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.",
           "Description": "The infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c.",
           "Severity": "HIGH",
@@ -15566,7 +15566,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:f31c9ae97168236ddf989d8257446830d0c7c0408ee806d39c226995af60a550",
+          "Fingerprint": "sha256:83d91b09868266bdbb565d08abd1ce05fa18d287b0e686750e28b8fecf806009",
           "Title": "openssl: OpenSSL: Denial of Service due to NULL pointer dereference in CMS EnvelopedData processing",
           "Description": "Issue summary: During processing of a crafted CMS EnvelopedData message\nwith KeyTransportRecipientInfo a NULL pointer dereference can happen.\n\nImpact summary: Applications that process attacker-controlled CMS data may\ncrash before authentication or cryptographic operations occur resulting in\nDenial of Service.\n\nWhen a CMS EnvelopedData message that uses KeyTransportRecipientInfo with\nRSA-OAEP encryption is processed, the optional parameters field of\nRSA-OAEP SourceFunc algorithm identifier is examined without checking\nfor its presence. This results in a NULL pointer dereference if the field\nis missing.\n\nApplications and services that call CMS_decrypt() on untrusted input\n(e.g., S/MIME processing or CMS-based protocols) are vulnerable.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this\nissue, as the affected code is outside the OpenSSL FIPS module boundary.",
           "Severity": "HIGH",
@@ -15622,7 +15622,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:23aac2805e30aa4f518248b582adba03ac29a34afe6294dcf32b2ed4ec221a4a",
+          "Fingerprint": "sha256:7f89574c0ad74cad39515e11fbd4a83fe719e6ce030d5bd5e81032f4d2dff914",
           "Title": "systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data",
           "Description": "systemd, a system and service manager, (as PID 1) hits an assert and freezes execution when an unprivileged IPC API call is made with spurious data. On version v249 and older the effect is not an assert, but stack overwriting, with the attacker controlled content. From version v250 and newer this is not possible as the safety check causes an assert instead. This IPC call was added in v239, so versions older than that are not affected. Versions 260-rc1, 259.2, 258.5, and 257.11 contain patches. No known workarounds are available.",
           "Severity": "HIGH",
@@ -15682,7 +15682,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:d0bf79ac3f1c555fa325b6ac84491fcf7aa5953d1aa264cc28ab239ed6439adb",
+          "Fingerprint": "sha256:e9efebd7e493fabdbeba254e3482f61c7e8cefebe13ee12f83a4fc39df89c1be",
           "Title": "ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.",
           "Description": "The infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c.",
           "Severity": "HIGH",
@@ -15750,7 +15750,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:aefae4e47d82170c032437ac9b688ec6ad37587bded7c1df501e17e414a3ebc1",
+          "Fingerprint": "sha256:27907ee3cb1b88b84279727fb859a4b660077f835d56fda1fd878731a302a5cc",
           "Title": "systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data",
           "Description": "systemd, a system and service manager, (as PID 1) hits an assert and freezes execution when an unprivileged IPC API call is made with spurious data. On version v249 and older the effect is not an assert, but stack overwriting, with the attacker controlled content. From version v250 and newer this is not possible as the safety check causes an assert instead. This IPC call was added in v239, so versions older than that are not affected. Versions 260-rc1, 259.2, 258.5, and 257.11 contain patches. No known workarounds are available.",
           "Severity": "HIGH",
@@ -15810,7 +15810,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:e580c859609b4bd13d6037ea29ddde148054e31ef66ec170fb897ef542495fdd",
+          "Fingerprint": "sha256:7fd3098f056a3460beae2adb293d1cd47a07f7bff98c7d98377b0d1fb573b557",
           "Title": "kernel: memory exhaustion via crafted Graphics Execution Manager (GEM) objects",
           "Description": "The Direct Rendering Manager (DRM) subsystem in the Linux kernel through 4.x mishandles requests for Graphics Execution Manager (GEM) objects, which allows context-dependent attackers to cause a denial of service (memory consumption) via an application that processes graphics data, as demonstrated by JavaScript code that creates many CANVAS elements for rendering by Chrome or Firefox.",
           "Severity": "HIGH",
@@ -15862,7 +15862,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:0c7dcb6f1f1e88fa8caede3bd4ec88c21af5c6689c2948a653334543573d489e",
+          "Fingerprint": "sha256:2404772cbafa7821592ba1a5062bed76cf68f7dd8679ec3fd960fcc55e568826",
           "Title": "kernel: mounting a crafted f2fs filesystem image can lead to slab-out-of-bounds read access in f2fs_build_segment_manager in fs/f2fs/segment.c",
           "Description": "In the Linux kernel 5.0.21, mounting a crafted f2fs filesystem image can lead to slab-out-of-bounds read access in f2fs_build_segment_manager in fs/f2fs/segment.c, related to init_min_max_mtime in fs/f2fs/segment.c (because the second argument to get_seg_entry is not validated).",
           "Severity": "HIGH",
@@ -15921,7 +15921,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:b80ad3e4f697b199c26a42ee8dfd3ce7e6a1c92c223c055d722aa35afb6a11bf",
+          "Fingerprint": "sha256:1f2cde730a791c383f170e2d484235424e8a99511e8f6184003e47cb9f37c3a6",
           "Title": "kernel: out-of-bounds write in __remove_dirty_segment in fs/f2fs/segment.c",
           "Description": "In the Linux kernel 5.0.21, mounting a crafted f2fs filesystem image can cause __remove_dirty_segment slab-out-of-bounds write access because an array is bounded by the number of dirty types (8) but the array index can exceed this.",
           "Severity": "HIGH",
@@ -15975,7 +15975,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:711106d9b0af7c4f8a76ac737903f42d69e8ed2f4dbdd92adb3daaf242f3db05",
+          "Fingerprint": "sha256:88197d5e63e954426d43c03a30d48783c1285c56220f359bc3500978946d98d1",
           "Title": "kernel: low-privileged user privileges escalation",
           "Description": "An unauthorized access to the execution of the setuid file with capabilities flaw in the Linux kernel OverlayFS subsystem was found in the way user copying a capable file from a nosuid mount into another mount. A local user could use this flaw to escalate their privileges on the system.",
           "Severity": "HIGH",
@@ -16029,7 +16029,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:16621eee3fbf52ae83eb9214333c13b0ba455511ccc028da65667e9ce662547e",
+          "Fingerprint": "sha256:86bbe1097854994c7f5873c6bb1a4732d716f321e218b7102787bc6e2bb4a34c",
           "Title": "kernel: descendant's dumpable setting with certain SUID binaries",
           "Description": "A flaw was found in the way the dumpable flag setting was handled when certain SUID binaries executed its descendants. The prerequisite is a SUID binary that sets real UID equal to effective UID, and real GID equal to effective GID. The descendant will then have a dumpable value set to 1. As a result, if the descendant process crashes and core_pattern is set to a relative value, its core dump is stored in the current directory with uid:gid permissions. An unprivileged local user with eligible root SUID binary could use this flaw to place core dumps into root-owned directories, potentially resulting in escalation of privileges.",
           "Severity": "HIGH",
@@ -16088,7 +16088,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:2d48b9b73aa0c21149d107e3fe31519d031abbd804e9b8b36ce6fa868baf5982",
+          "Fingerprint": "sha256:995d676d8721f69a7653b2de93bcd6c557a9920f53e4d0dbf4c858ab1c18ca0b",
           "Title": "kernel: bluetooth: use-after-free vulnerability in af_bluetooth.c",
           "Description": "Use After Free vulnerability in Linux Linux kernel kernel on Linux, x86, ARM (bluetooth modules) allows Local Execution of Code. This vulnerability is associated with program files https://gitee.Com/anolis/cloud-kernel/blob/devel-5.10/net/bluetooth/af_bluetooth.C.\n\nThis issue affects Linux kernel: from v2.6.12-rc2 before v6.8-rc1.\n\n",
           "Severity": "HIGH",
@@ -16140,7 +16140,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:4c471ffbcf65c5e8395264a52265ca1da0ba439ba2e81f46131bdfbc893f7976",
+          "Fingerprint": "sha256:b3714293ff18c7f86431b0af5d4c6eac3afe548b62d32925d4c8b7c243dd45d3",
           "Title": "kernel: wifi: ath12k: Fix for out-of bound access error",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: ath12k: Fix for out-of bound access error\n\nSelfgen stats are placed in a buffer using print_array_to_buf_index() function.\nArray length parameter passed to the function is too big, resulting in possible\nout-of bound memory error.\nDecreasing buffer size by one fixes faulty upper bound of passed array.\n\nDiscovered in coverity scan, CID 1600742 and CID 1600758",
           "Severity": "HIGH",
@@ -16539,7 +16539,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:2e5b3d7874547847964baf5a9db35092e2f1a80bdc54e681a2891fff910b45d6",
+          "Fingerprint": "sha256:215f67b3a2269da7fb1985682ca3fc82c8d206d330bd5a5e8c9e3559a0d52afa",
           "Title": "kernel: Linux kernel: PCI/ASPM use-after-free during hot-unplug",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI/ASPM: Fix link state exit during switch upstream function removal\n\nBefore 456d8aa37d0f (\"PCI/ASPM: Disable ASPM on MFD function removal to\navoid use-after-free\"), we would free the ASPM link only after the last\nfunction on the bus pertaining to the given link was removed.\n\nThat was too late. If function 0 is removed before sibling function,\nlink-\u003edownstream would point to free'd memory after.\n\nAfter above change, we freed the ASPM parent link state upon any function\nremoval on the bus pertaining to a given link.\n\nThat is too early. If the link is to a PCIe switch with MFD on the upstream\nport, then removing functions other than 0 first would free a link which\nstill remains parent_link to the remaining downstream ports.\n\nThe resulting GPFs are especially frequent during hot-unplug, because\npciehp removes devices on the link bus in reverse order.\n\nOn that switch, function 0 is the virtual P2P bridge to the internal bus.\nFree exactly when function 0 is removed -- before the parent link is\nobsolete, but after all subordinate links are gone.\n\n[kwilczynski: commit log]",
           "Severity": "HIGH",
@@ -16631,7 +16631,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:2853087a2a40a267601999f9f7939ab8f419a858c29334c2ed23224f9bc8a3ec",
+          "Fingerprint": "sha256:db27938ce35d2e32a307f7d9b64419a82bd9c1266bfd09d74b767578afea8c38",
           "Title": "kernel: ibmvnic: Use kernel helpers for hex dumps",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nibmvnic: Use kernel helpers for hex dumps\n\nPreviously, when the driver was printing hex dumps, the buffer was cast\nto an 8 byte long and printed using string formatters. If the buffer\nsize was not a multiple of 8 then a read buffer overflow was possible.\n\nTherefore, create a new ibmvnic function that loops over a buffer and\ncalls hex_dump_to_buffer instead.\n\nThis patch address KASAN reports like the one below:\n  ibmvnic 30000003 env3: Login Buffer:\n  ibmvnic 30000003 env3: 01000000af000000\n  \u003c...\u003e\n  ibmvnic 30000003 env3: 2e6d62692e736261\n  ibmvnic 30000003 env3: 65050003006d6f63\n  ==================================================================\n  BUG: KASAN: slab-out-of-bounds in ibmvnic_login+0xacc/0xffc [ibmvnic]\n  Read of size 8 at addr c0000001331a9aa8 by task ip/17681\n  \u003c...\u003e\n  Allocated by task 17681:\n  \u003c...\u003e\n  ibmvnic_login+0x2f0/0xffc [ibmvnic]\n  ibmvnic_open+0x148/0x308 [ibmvnic]\n  __dev_open+0x1ac/0x304\n  \u003c...\u003e\n  The buggy address is located 168 bytes inside of\n                allocated 175-byte region [c0000001331a9a00, c0000001331a9aaf)\n  \u003c...\u003e\n  =================================================================\n  ibmvnic 30000003 env3: 000000000033766e",
           "Severity": "HIGH",
@@ -16711,7 +16711,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:afd6be263d36377edf61c3e81cb9259e04260288c85f1bb15a3673a8af3e4047",
+          "Fingerprint": "sha256:cb0156ed7d7605a1fc6433ecd2ee0f8abdeb66f6e5a7692e02badda6e21b06c8",
           "Title": "kernel: PCI/pwrctrl: Cancel outstanding rescan work when unregistering",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI/pwrctrl: Cancel outstanding rescan work when unregistering\n\nIt's possible to trigger use-after-free here by:\n\n  (a) forcing rescan_work_func() to take a long time and\n  (b) utilizing a pwrctrl driver that may be unloaded for some reason\n\nCancel outstanding work to ensure it is finished before we allow our data\nstructures to be cleaned up.\n\n[bhelgaas: tidy commit log]",
           "Severity": "HIGH",
@@ -16791,7 +16791,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:e0316702a76a5cac692fbd509c1d0c3965cef6db7ef04b6957a1c3f5d55e9d1a",
+          "Fingerprint": "sha256:29534e369db0bd7ddaa0a2451f89d30f33c5371af5d382ac8f449db690688c6b",
           "Title": "kernel: drm/nouveau: fix a use-after-free in r535_gsp_rpc_push()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/nouveau: fix a use-after-free in r535_gsp_rpc_push()\n\nThe RPC container is released after being passed to r535_gsp_rpc_send().\n\nWhen sending the initial fragment of a large RPC and passing the\ncaller's RPC container, the container will be freed prematurely. Subsequent\nattempts to send remaining fragments will therefore result in a\nuse-after-free.\n\nAllocate a temporary RPC container for holding the initial fragment of a\nlarge RPC when sending. Free the caller's container when all fragments\nare successfully sent.\n\n[ Rebase onto Blackwell changes. - Danilo ]",
           "Severity": "HIGH",
@@ -16840,7 +16840,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:6fc4bb60945e6099fc94b56c350061ec0c4d1012939959c3a6b61e4212663263",
+          "Fingerprint": "sha256:e7fe632307b73b556777b2998abcedb91e6f52b57b807b826107794c6ca6f31c",
           "Title": "kernel: jfs: fix array-index-out-of-bounds read in add_missing_indices",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\njfs: fix array-index-out-of-bounds read in add_missing_indices\n\nstbl is s8 but it must contain offsets into slot which can go from 0 to\n127.\n\nAdded a bound check for that error and return -EIO if the check fails.\nAlso make jfs_readdir return with error if add_missing_indices returns\nwith an error.",
           "Severity": "HIGH",
@@ -16910,7 +16910,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:598605f5474bf0495353dc07280c72ced3861cba48ccfd040d9495c1381e8675",
+          "Fingerprint": "sha256:578703ed0af8a81353372a85d4e2f345ca949897b72a8eb0fee1c45fd3a940b6",
           "Title": "kernel: Kernel: Double free vulnerability in exFAT filesystem can lead to denial of service",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nexfat: fix double free in delayed_free\n\nThe double free could happen in the following path.\n\nexfat_create_upcase_table()\n        exfat_create_upcase_table() : return error\n        exfat_free_upcase_table() : free -\u003evol_utbl\n        exfat_load_default_upcase_table : return error\n     exfat_kill_sb()\n           delayed_free()\n                  exfat_free_upcase_table() \u003c--------- double free\nThis patch set -\u003evol_util as NULL after freeing it.",
           "Severity": "HIGH",
@@ -16992,7 +16992,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:ac9c27ba3f4569eacb1eb216b86481d90d5cadb718b5833b284bdd67eb6ef65e",
+          "Fingerprint": "sha256:d370984cde4cc47017eba4f321fafb2c711360366047a8ff243d8adbaf5ac344",
           "Title": "kernel: platform/x86/amd: pmf: Use device managed allocations",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nplatform/x86/amd: pmf: Use device managed allocations\n\nIf setting up smart PC fails for any reason then this can lead to\na double free when unloading amd-pmf.  This is because dev-\u003ebuf was\nfreed but never set to NULL and is again freed in amd_pmf_remove().\n\nTo avoid subtle allocation bugs in failures leading to a double free\nchange all allocations into device managed allocations.",
           "Severity": "HIGH",
@@ -17047,7 +17047,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:9ce2c598d00ae4968f7b7301b9458c0cdd174e9f6acbc5b1d0cae2b2ec9bf9de",
+          "Fingerprint": "sha256:c37441ce141c3075485e1e646a3814a7330dc79adbb5fb48d6d7eef7592e6ed5",
           "Title": "kernel: padata: Fix pd UAF once and for all",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npadata: Fix pd UAF once and for all\n\nThere is a race condition/UAF in padata_reorder that goes back\nto the initial commit.  A reference count is taken at the start\nof the process in padata_do_parallel, and released at the end in\npadata_serial_worker.\n\nThis reference count is (and only is) required for padata_replace\nto function correctly.  If padata_replace is never called then\nthere is no issue.\n\nIn the function padata_reorder which serves as the core of padata,\nas soon as padata is added to queue-\u003eserial.list, and the associated\nspin lock released, that padata may be processed and the reference\ncount on pd would go away.\n\nFix this by getting the next padata before the squeue-\u003eserial lock\nis released.\n\nIn order to make this possible, simplify padata_reorder by only\ncalling it once the next padata arrives.",
           "Severity": "HIGH",
@@ -17138,7 +17138,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:a17c19ab277dbc21bcd1117cf9ae5b7966b6e576258c7ea7963b0a1db0cb8499",
+          "Fingerprint": "sha256:e350c65edfd9ff3379871c1d964834c8a2b4460e2085dac4bc7fbdb57d6156fe",
           "Title": "kernel: f2fs: compress: fix UAF of f2fs_inode_info in f2fs_free_dic",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: compress: fix UAF of f2fs_inode_info in f2fs_free_dic\n\nThe decompress_io_ctx may be released asynchronously after\nI/O completion. If this file is deleted immediately after read,\nand the kworker of processing post_read_wq has not been executed yet\ndue to high workloads, It is possible that the inode(f2fs_inode_info)\nis evicted and freed before it is used f2fs_free_dic.\n\n    The UAF case as below:\n    Thread A                                      Thread B\n    - f2fs_decompress_end_io\n     - f2fs_put_dic\n      - queue_work\n        add free_dic work to post_read_wq\n                                                   - do_unlink\n                                                    - iput\n                                                     - evict\n                                                      - call_rcu\n    This file is deleted after read.\n\n    Thread C                                 kworker to process post_read_wq\n    - rcu_do_batch\n     - f2fs_free_inode\n      - kmem_cache_free\n     inode is freed by rcu\n                                             - process_scheduled_works\n                                              - f2fs_late_free_dic\n                                               - f2fs_free_dic\n                                                - f2fs_release_decomp_mem\n                                      read (dic-\u003einode)-\u003ei_compress_algorithm\n\nThis patch store compress_algorithm and sbi in dic to avoid inode UAF.\n\nIn addition, the previous solution is deprecated in [1] may cause system hang.\n[1] https://lore.kernel.org/all/c36ab955-c8db-4a8b-a9d0-f07b5f426c3f@kernel.org",
           "Severity": "HIGH",
@@ -17199,7 +17199,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:9bd34032c4634962daa7447eba95f241899e3016cdce54ff90be18628a937f20",
+          "Fingerprint": "sha256:94032663158637f19e16788cd08d20accd5455d0b66ff5fea9a363c757242713",
           "Title": "kernel: rv: Use strings in da monitors tracepoints",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nrv: Use strings in da monitors tracepoints\n\nUsing DA monitors tracepoints with KASAN enabled triggers the following\nwarning:\n\n BUG: KASAN: global-out-of-bounds in do_trace_event_raw_event_event_da_monitor+0xd6/0x1a0\n Read of size 32 at addr ffffffffaada8980 by task ...\n Call Trace:\n  \u003cTASK\u003e\n [...]\n  do_trace_event_raw_event_event_da_monitor+0xd6/0x1a0\n  ? __pfx_do_trace_event_raw_event_event_da_monitor+0x10/0x10\n  ? trace_event_sncid+0x83/0x200\n  trace_event_sncid+0x163/0x200\n [...]\n The buggy address belongs to the variable:\n  automaton_snep+0x4e0/0x5e0\n\nThis is caused by the tracepoints reading 32 bytes __array instead of\n__string from the automata definition. Such strings are literals and\nreading 32 bytes ends up in out of bound memory accesses (e.g. the next\nautomaton's data in this case).\nThe error is harmless as, while printing the string, we stop at the null\nterminator, but it should still be fixed.\n\nUse the __string facilities while defining the tracepoints to avoid\nreading out of bound memory.",
           "Severity": "HIGH",
@@ -17254,7 +17254,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:03f9751dca028dc6a45ba8015f14dc1939aca0ded063d8b4b1f1b54a25d72878",
+          "Fingerprint": "sha256:6ab74377119b435fda027cd149ab136a0a0224d0ac83ead4bf706ecc08493979",
           "Title": "kernel: ptp: ocp: fix use-after-free bugs causing by ptp_ocp_watchdog",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nptp: ocp: fix use-after-free bugs causing by ptp_ocp_watchdog\n\nThe ptp_ocp_detach() only shuts down the watchdog timer if it is\npending. However, if the timer handler is already running, the\ntimer_delete_sync() is not called. This leads to race conditions\nwhere the devlink that contains the ptp_ocp is deallocated while\nthe timer handler is still accessing it, resulting in use-after-free\nbugs. The following details one of the race scenarios.\n\n(thread 1)                           | (thread 2)\nptp_ocp_remove()                     |\n  ptp_ocp_detach()                   | ptp_ocp_watchdog()\n    if (timer_pending(\u0026bp-\u003ewatchdog))|   bp = timer_container_of()\n      timer_delete_sync()            |\n                                     |\n  devlink_free(devlink) //free       |\n                                     |   bp-\u003e //use\n\nResolve this by unconditionally calling timer_delete_sync() to ensure\nthe timer is reliably deactivated, preventing any access after free.",
           "Severity": "HIGH",
@@ -17303,7 +17303,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:c5b69b6beefcb938e79e56df312f2496be6b2bd7b419e55fe6e4872c4c9146e1",
+          "Fingerprint": "sha256:584bfe21f6c2d836196436729248752e19e21375dd2188ada0beb1ecbf56b43e",
           "Title": "kernel: wifi: mt76: mt7915: fix list corruption after hardware restart",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mt76: mt7915: fix list corruption after hardware restart\n\nSince stations are recreated from scratch, all lists that wcids are added\nto must be cleared before calling ieee80211_restart_hw.\nSet wcid-\u003esta = 0 for each wcid entry in order to ensure that they are\nnot added again before they are ready.",
           "Severity": "HIGH",
@@ -17357,7 +17357,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:8eb4923be4c2f5b9079f6402bf50164ba1b81e32db80253bf08e12c26a23d639",
+          "Fingerprint": "sha256:bac8bbf018660b07493254f1767907d048da5e179359e2f03c605272fe9614ca",
           "Title": "kernel: iommu/s390: Make attach succeed when the device was surprise removed",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\niommu/s390: Make attach succeed when the device was surprise removed\n\nWhen a PCI device is removed with surprise hotplug, there may still be\nattempts to attach the device to the default domain as part of tear down\nvia (__iommu_release_dma_ownership()), or because the removal happens\nduring probe (__iommu_probe_device()). In both cases zpci_register_ioat()\nfails with a cc value indicating that the device handle is invalid. This\nis because the device is no longer part of the instance as far as the\nhypervisor is concerned.\n\nCurrently this leads to an error return and s390_iommu_attach_device()\nfails. This triggers the WARN_ON() in __iommu_group_set_domain_nofail()\nbecause attaching to the default domain must never fail.\n\nWith the device fenced by the hypervisor no DMAs to or from memory are\npossible and the IOMMU translations have no effect. Proceed as if the\nregistration was successful and let the hotplug event handling clean up\nthe device.\n\nThis is similar to how devices in the error state are handled since\ncommit 59bbf596791b (\"iommu/s390: Make attach succeed even if the device\nis in error state\") except that for removal the domain will not be\nregistered later. This approach was also previously discussed at the\nlink.\n\nHandle both cases, error state and removal, in a helper which checks if\nthe error needs to be propagated or ignored. Avoid magic number\ncondition codes by using the pre-existing, but never used, defines for\nPCI load/store condition codes and rename them to reflect that they\napply to all PCI instructions.",
           "Severity": "HIGH",
@@ -17406,7 +17406,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:33ad019936d167b5bca62f462666e824b6a1140fb07b7c5d3f9776d1bc76a90c",
+          "Fingerprint": "sha256:a86de9bdd416bb91e5e62fd4e1fe333b9be428c26b265668f683d70cae5265b2",
           "Title": "kernel: smc: Fix use-after-free in __pnet_find_base_ndev()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsmc: Fix use-after-free in __pnet_find_base_ndev().\n\nsyzbot reported use-after-free of net_device in __pnet_find_base_ndev(),\nwhich was called during connect(). [0]\n\nsmc_pnet_find_ism_resource() fetches sk_dst_get(sk)-\u003edev and passes\ndown to pnet_find_base_ndev(), where RTNL is held.  Then, UAF happened\nat __pnet_find_base_ndev() when the dev is first used.\n\nThis means dev had already been freed before acquiring RTNL in\npnet_find_base_ndev().\n\nWhile dev is going away, dst-\u003edev could be swapped with blackhole_netdev,\nand the dev's refcnt by dst will be released.\n\nWe must hold dev's refcnt before calling smc_pnet_find_ism_resource().\n\nAlso, smc_pnet_find_roce_resource() has the same problem.\n\nLet's use __sk_dst_get() and dst_dev_rcu() in the two functions.\n\n[0]:\nBUG: KASAN: use-after-free in __pnet_find_base_ndev+0x1b1/0x1c0 net/smc/smc_pnet.c:926\nRead of size 1 at addr ffff888036bac33a by task syz.0.3632/18609\n\nCPU: 1 UID: 0 PID: 18609 Comm: syz.0.3632 Not tainted syzkaller #0 PREEMPT(full)\nHardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/18/2025\nCall Trace:\n \u003cTASK\u003e\n dump_stack_lvl+0x189/0x250 lib/dump_stack.c:120\n print_address_description mm/kasan/report.c:378 [inline]\n print_report+0xca/0x240 mm/kasan/report.c:482\n kasan_report+0x118/0x150 mm/kasan/report.c:595\n __pnet_find_base_ndev+0x1b1/0x1c0 net/smc/smc_pnet.c:926\n pnet_find_base_ndev net/smc/smc_pnet.c:946 [inline]\n smc_pnet_find_ism_by_pnetid net/smc/smc_pnet.c:1103 [inline]\n smc_pnet_find_ism_resource+0xef/0x390 net/smc/smc_pnet.c:1154\n smc_find_ism_device net/smc/af_smc.c:1030 [inline]\n smc_find_proposal_devices net/smc/af_smc.c:1115 [inline]\n __smc_connect+0x372/0x1890 net/smc/af_smc.c:1545\n smc_connect+0x877/0xd90 net/smc/af_smc.c:1715\n __sys_connect_file net/socket.c:2086 [inline]\n __sys_connect+0x313/0x440 net/socket.c:2105\n __do_sys_connect net/socket.c:2111 [inline]\n __se_sys_connect net/socket.c:2108 [inline]\n __x64_sys_connect+0x7a/0x90 net/socket.c:2108\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7f47cbf8eba9\nCode: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 \u003c48\u003e 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48\nRSP: 002b:00007f47ccdb1038 EFLAGS: 00000246 ORIG_RAX: 000000000000002a\nRAX: ffffffffffffffda RBX: 00007f47cc1d5fa0 RCX: 00007f47cbf8eba9\nRDX: 0000000000000010 RSI: 0000200000000280 RDI: 000000000000000b\nRBP: 00007f47cc011e19 R08: 0000000000000000 R09: 0000000000000000\nR10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000\nR13: 00007f47cc1d6038 R14: 00007f47cc1d5fa0 R15: 00007ffc512f8aa8\n \u003c/TASK\u003e\n\nThe buggy address belongs to the physical page:\npage: refcount:0 mapcount:0 mapping:0000000000000000 index:0xffff888036bacd00 pfn:0x36bac\nflags: 0xfff00000000000(node=0|zone=1|lastcpupid=0x7ff)\nraw: 00fff00000000000 ffffea0001243d08 ffff8880b863fdc0 0000000000000000\nraw: ffff888036bacd00 0000000000000000 00000000ffffffff 0000000000000000\npage dumped because: kasan: bad access detected\npage_owner tracks the page as freed\npage last allocated via order 2, migratetype Unmovable, gfp_mask 0x446dc0(GFP_KERNEL_ACCOUNT|__GFP_ZERO|__GFP_NOWARN|__GFP_RETRY_MAYFAIL|__GFP_COMP), pid 16741, tgid 16741 (syz-executor), ts 343313197788, free_ts 380670750466\n set_page_owner include/linux/page_owner.h:32 [inline]\n post_alloc_hook+0x240/0x2a0 mm/page_alloc.c:1851\n prep_new_page mm/page_alloc.c:1859 [inline]\n get_page_from_freelist+0x21e4/0x22c0 mm/page_alloc.c:3858\n __alloc_frozen_pages_noprof+0x181/0x370 mm/page_alloc.c:5148\n alloc_pages_mpol+0x232/0x4a0 mm/mempolicy.c:2416\n ___kmalloc_large_node+0x5f/0x1b0 mm/slub.c:4317\n __kmalloc_large_node_noprof+0x18/0x90 mm/slub.c:4348\n __do_kmalloc_node mm/slub.c:4364 [inline]\n __kvmalloc_node\n---truncated---",
           "Severity": "HIGH",
@@ -17485,7 +17485,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:8993c2b51a4fc38d29e239e02c1e5755e2c1bb85c8846c45c0993620e4845c7d",
+          "Fingerprint": "sha256:61473eec487c529ebeaee045d45524edd7d9ab786e4a1663a065e54814b66175",
           "Title": "kernel: ipv6: use RCU in ip6_xmit()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: use RCU in ip6_xmit()\n\nUse RCU in ip6_xmit() in order to use dst_dev_rcu() to prevent\npossible UAF.",
           "Severity": "HIGH",
@@ -17596,7 +17596,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:7a483a66d3df3b31ab6489915d9180a9056a9029245e654a7d50a617670a251a",
+          "Fingerprint": "sha256:f9b42f4d48c47f6f919d02bf6c1e17805e872f5e57ac529f2d22cb1c1aef7f1a",
           "Title": "kernel: ipv6: use RCU in ip6_output()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: use RCU in ip6_output()\n\nUse RCU in ip6_output() in order to use dst_dev_rcu() to prevent\npossible UAF.\n\nWe can remove rcu_read_lock()/rcu_read_unlock() pairs\nfrom ip6_finish_output2().",
           "Severity": "HIGH",
@@ -17702,7 +17702,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:4f9f25a452bc6dd05f690e00116c6efb0c3314091a27741e4489a5d4195f0367",
+          "Fingerprint": "sha256:1ae452f3740989718ed84c2ac53b2e8b69d7df23f02930fcd8b63fa39ec8e0d0",
           "Title": "kernel: smc: Use __sk_dst_get() and dst_dev_rcu() in smc_clc_prfx_match()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsmc: Use __sk_dst_get() and dst_dev_rcu() in smc_clc_prfx_match().\n\nsmc_clc_prfx_match() is called from smc_listen_work() and\nnot under RCU nor RTNL.\n\nUsing sk_dst_get(sk)-\u003edev could trigger UAF.\n\nLet's use __sk_dst_get() and dst_dev_rcu().\n\nNote that the returned value of smc_clc_prfx_match() is not\nused in the caller.",
           "Severity": "HIGH",
@@ -17769,7 +17769,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:76fc23bd80b65697d43a0b6c5d3822e86ae4a3a01e979b4faaab2658adc1919c",
+          "Fingerprint": "sha256:53b31c14ecaf472c313a1ea125bedab5939ee6fed88cb3b25098b16461386964",
           "Title": "kernel: net: dsa: properly keep track of conduit reference",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: dsa: properly keep track of conduit reference\n\nProblem description\n-------------------\n\nDSA has a mumbo-jumbo of reference handling of the conduit net device\nand its kobject which, sadly, is just wrong and doesn't make sense.\n\nThere are two distinct problems.\n\n1. The OF path, which uses of_find_net_device_by_node(), never releases\n   the elevated refcount on the conduit's kobject. Nominally, the OF and\n   non-OF paths should result in objects having identical reference\n   counts taken, and it is already suspicious that\n   dsa_dev_to_net_device() has a put_device() call which is missing in\n   dsa_port_parse_of(), but we can actually even verify that an issue\n   exists. With CONFIG_DEBUG_KOBJECT_RELEASE=y, if we run this command\n   \"before\" and \"after\" applying this patch:\n\n(unbind the conduit driver for net device eno2)\necho 0000:00:00.2 \u003e /sys/bus/pci/drivers/fsl_enetc/unbind\n\nwe see these lines in the output diff which appear only with the patch\napplied:\n\nkobject: 'eno2' (ffff002009a3a6b8): kobject_release, parent 0000000000000000 (delayed 1000)\nkobject: '109' (ffff0020099d59a0): kobject_release, parent 0000000000000000 (delayed 1000)\n\n2. After we find the conduit interface one way (OF) or another (non-OF),\n   it can get unregistered at any time, and DSA remains with a long-lived,\n   but in this case stale, cpu_dp-\u003econduit pointer. Holding the net\n   device's underlying kobject isn't actually of much help, it just\n   prevents it from being freed (but we never need that kobject\n   directly). What helps us to prevent the net device from being\n   unregistered is the parallel netdev reference mechanism (dev_hold()\n   and dev_put()).\n\nActually we actually use that netdev tracker mechanism implicitly on\nuser ports since commit 2f1e8ea726e9 (\"net: dsa: link interfaces with\nthe DSA master to get rid of lockdep warnings\"), via netdev_upper_dev_link().\nBut time still passes at DSA switch probe time between the initial\nof_find_net_device_by_node() code and the user port creation time, time\nduring which the conduit could unregister itself and DSA wouldn't know\nabout it.\n\nSo we have to run of_find_net_device_by_node() under rtnl_lock() to\nprevent that from happening, and release the lock only with the netdev\ntracker having acquired the reference.\n\nDo we need to keep the reference until dsa_unregister_switch() /\ndsa_switch_shutdown()?\n1: Maybe yes. A switch device will still be registered even if all user\n   ports failed to probe, see commit 86f8b1c01a0a (\"net: dsa: Do not\n   make user port errors fatal\"), and the cpu_dp-\u003econduit pointers\n   remain valid.  I haven't audited all call paths to see whether they\n   will actually use the conduit in lack of any user port, but if they\n   do, it seems safer to not rely on user ports for that reference.\n2. Definitely yes. We support changing the conduit which a user port is\n   associated to, and we can get into a situation where we've moved all\n   user ports away from a conduit, thus no longer hold any reference to\n   it via the net device tracker. But we shouldn't let it go nonetheless\n   - see the next change in relation to dsa_tree_find_first_conduit()\n   and LAG conduits which disappear.\n   We have to be prepared to return to the physical conduit, so the CPU\n   port must explicitly keep another reference to it. This is also to\n   say: the user ports and their CPU ports may not always keep a\n   reference to the same conduit net device, and both are needed.\n\nAs for the conduit's kobject for the /sys/class/net/ entry, we don't\ncare about it, we can release it as soon as we hold the net device\nobject itself.\n\nHistory and blame attribution\n-----------------------------\n\nThe code has been refactored so many times, it is very difficult to\nfollow and properly attribute a blame, but I'll try to make a short\nhistory which I hope to be correct.\n\nWe have two distinct probing paths:\n- one for OF, introduced in 2016 i\n---truncated---",
           "Severity": "HIGH",
@@ -17823,7 +17823,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:31831430d0c08df203ae57c3f47fa81d2f0aa824988e2fee6db7dc7a8ce58d3e",
+          "Fingerprint": "sha256:9ca96c74d68af1a4ab73a3c002cf5d1d33c67c6ccc27bd35b5f073cab8a87bb6",
           "Title": "kernel: dmaengine: mmp_pdma: Fix race condition in mmp_pdma_residue()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndmaengine: mmp_pdma: Fix race condition in mmp_pdma_residue()\n\nAdd proper locking in mmp_pdma_residue() to prevent use-after-free when\naccessing descriptor list and descriptor contents.\n\nThe race occurs when multiple threads call tx_status() while the tasklet\non another CPU is freeing completed descriptors:\n\nCPU 0                              CPU 1\n-----                              -----\nmmp_pdma_tx_status()\nmmp_pdma_residue()\n  -\u003e NO LOCK held\n     list_for_each_entry(sw, ..)\n                                   DMA interrupt\n                                   dma_do_tasklet()\n                                     -\u003e spin_lock(\u0026desc_lock)\n                                        list_move(sw-\u003enode, ...)\n                                        spin_unlock(\u0026desc_lock)\n  |                                     dma_pool_free(sw) \u003c- FREED!\n  -\u003e access sw-\u003edesc \u003c- UAF!\n\nThis issue can be reproduced when running dmatest on the same channel with\nmultiple threads (threads_per_chan \u003e 1).\n\nFix by protecting the chain_running list iteration and descriptor access\nwith the chan-\u003edesc_lock spinlock.",
           "Severity": "HIGH",
@@ -17876,7 +17876,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:f59fd3f82a9b585e4d6c8c76076829275658e301bf950e662433193ef0cc47ee",
+          "Fingerprint": "sha256:daf8a5e1dc2179a9436d2a071abab0f6cd6b6b4c3eba07eb53c753b485ae1490",
           "Title": "kernel: Linux kernel: Denial of Service due to incorrect SVE context restoration",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\narm64/fpsimd: signal: Fix restoration of SVE context\n\nWhen SME is supported, Restoring SVE signal context can go wrong in a\nfew ways, including placing the task into an invalid state where the\nkernel may read from out-of-bounds memory (and may potentially take a\nfatal fault) and/or may kill the task with a SIGKILL.\n\n(1) Restoring a context with SVE_SIG_FLAG_SM set can place the task into\n    an invalid state where SVCR.SM is set (and sve_state is non-NULL)\n    but TIF_SME is clear, consequently resuting in out-of-bounds memory\n    reads and/or killing the task with SIGKILL.\n\n    This can only occur in unusual (but legitimate) cases where the SVE\n    signal context has either been modified by userspace or was saved in\n    the context of another task (e.g. as with CRIU), as otherwise the\n    presence of an SVE signal context with SVE_SIG_FLAG_SM implies that\n    TIF_SME is already set.\n\n    While in this state, task_fpsimd_load() will NOT configure SMCR_ELx\n    (leaving some arbitrary value configured in hardware) before\n    restoring SVCR and attempting to restore the streaming mode SVE\n    registers from memory via sve_load_state(). As the value of\n    SMCR_ELx.LEN may be larger than the task's streaming SVE vector\n    length, this may read memory outside of the task's allocated\n    sve_state, reading unrelated data and/or triggering a fault.\n\n    While this can result in secrets being loaded into streaming SVE\n    registers, these values are never exposed. As TIF_SME is clear,\n    fpsimd_bind_task_to_cpu() will configure CPACR_ELx.SMEN to trap EL0\n    accesses to streaming mode SVE registers, so these cannot be\n    accessed directly at EL0. As fpsimd_save_user_state() verifies the\n    live vector length before saving (S)SVE state to memory, no secret\n    values can be saved back to memory (and hence cannot be observed via\n    ptrace, signals, etc).\n\n    When the live vector length doesn't match the expected vector length\n    for the task, fpsimd_save_user_state() will send a fatal SIGKILL\n    signal to the task. Hence the task may be killed after executing\n    userspace for some period of time.\n\n(2) Restoring a context with SVE_SIG_FLAG_SM clear does not clear the\n    task's SVCR.SM. If SVCR.SM was set prior to restoring the context,\n    then the task will be left in streaming mode unexpectedly, and some\n    register state will be combined inconsistently, though the task will\n    be left in legitimate state from the kernel's PoV.\n\n    This can only occur in unusual (but legitimate) cases where ptrace\n    has been used to set SVCR.SM after entry to the sigreturn syscall,\n    as syscall entry clears SVCR.SM.\n\n    In these cases, the the provided SVE register data will be loaded\n    into the task's sve_state using the non-streaming SVE vector length\n    and the FPSIMD registers will be merged into this using the\n    streaming SVE vector length.\n\nFix (1) by setting TIF_SME when setting SVCR.SM. This also requires\nensuring that the task's sme_state has been allocated, but as this could\ncontain live ZA state, it should not be zeroed. Fix (2) by clearing\nSVCR.SM when restoring a SVE signal context with SVE_SIG_FLAG_SM clear.\n\nFor consistency, I've pulled the manipulation of SVCR, TIF_SVE, TIF_SME,\nand fp_type earlier, immediately after the allocation of\nsve_state/sme_state, before the restore of the actual register state.\nThis makes it easier to ensure that these are always modified\nconsistently, even if a fault is taken while reading the register data\nfrom the signal context. I do not expect any software to depend on the\nexact state restored when a fault is taken while reading the context.",
           "Severity": "HIGH",
@@ -17935,7 +17935,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:70377f1e225d3c37429dee21d450b9889895c95c91d586c42eaf2730d34c3b7b",
+          "Fingerprint": "sha256:be9a8f70e789140c5d6708e99c30e0e15046fdc0fb6ad286dccbced46ad31e07",
           "Title": "kernel: Linux kernel: Use-after-free in bonding module can cause system crash or arbitrary code execution",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbonding: fix use-after-free due to enslave fail after slave array update\n\nFix a use-after-free which happens due to enslave failure after the new\nslave has been added to the array. Since the new slave can be used for Tx\nimmediately, we can use it after it has been freed by the enslave error\ncleanup path which frees the allocated slave memory. Slave update array is\nsupposed to be called last when further enslave failures are not expected.\nMove it after xdp setup to avoid any problems.\n\nIt is very easy to reproduce the problem with a simple xdp_pass prog:\n ip l add bond1 type bond mode balance-xor\n ip l set bond1 up\n ip l set dev bond1 xdp object xdp_pass.o sec xdp_pass\n ip l add dumdum type dummy\n\nThen run in parallel:\n while :; do ip l set dumdum master bond1 1\u003e/dev/null 2\u003e\u00261; done;\n mausezahn bond1 -a own -b rand -A rand -B 1.1.1.1 -c 0 -t tcp \"dp=1-1023, flags=syn\"\n\nThe crash happens almost immediately:\n [  605.602850] Oops: general protection fault, probably for non-canonical address 0xe0e6fc2460000137: 0000 [#1] SMP KASAN NOPTI\n [  605.602916] KASAN: maybe wild-memory-access in range [0x07380123000009b8-0x07380123000009bf]\n [  605.602946] CPU: 0 UID: 0 PID: 2445 Comm: mausezahn Kdump: loaded Tainted: G    B               6.19.0-rc6+ #21 PREEMPT(voluntary)\n [  605.602979] Tainted: [B]=BAD_PAGE\n [  605.602998] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014\n [  605.603032] RIP: 0010:netdev_core_pick_tx+0xcd/0x210\n [  605.603063] Code: 48 89 fa 48 c1 ea 03 80 3c 02 00 0f 85 3e 01 00 00 48 b8 00 00 00 00 00 fc ff df 4c 8b 6b 08 49 8d 7d 30 48 89 fa 48 c1 ea 03 \u003c80\u003e 3c 02 00 0f 85 25 01 00 00 49 8b 45 30 4c 89 e2 48 89 ee 48 89\n [  605.603111] RSP: 0018:ffff88817b9af348 EFLAGS: 00010213\n [  605.603145] RAX: dffffc0000000000 RBX: ffff88817d28b420 RCX: 0000000000000000\n [  605.603172] RDX: 00e7002460000137 RSI: 0000000000000008 RDI: 07380123000009be\n [  605.603199] RBP: ffff88817b541a00 R08: 0000000000000001 R09: fffffbfff3ed8c0c\n [  605.603226] R10: ffffffff9f6c6067 R11: 0000000000000001 R12: 0000000000000000\n [  605.603253] R13: 073801230000098e R14: ffff88817d28b448 R15: ffff88817b541a84\n [  605.603286] FS:  00007f6570ef67c0(0000) GS:ffff888221dfa000(0000) knlGS:0000000000000000\n [  605.603319] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n [  605.603343] CR2: 00007f65712fae40 CR3: 000000011371b000 CR4: 0000000000350ef0\n [  605.603373] Call Trace:\n [  605.603392]  \u003cTASK\u003e\n [  605.603410]  __dev_queue_xmit+0x448/0x32a0\n [  605.603434]  ? __pfx_vprintk_emit+0x10/0x10\n [  605.603461]  ? __pfx_vprintk_emit+0x10/0x10\n [  605.603484]  ? __pfx___dev_queue_xmit+0x10/0x10\n [  605.603507]  ? bond_start_xmit+0xbfb/0xc20 [bonding]\n [  605.603546]  ? _printk+0xcb/0x100\n [  605.603566]  ? __pfx__printk+0x10/0x10\n [  605.603589]  ? bond_start_xmit+0xbfb/0xc20 [bonding]\n [  605.603627]  ? add_taint+0x5e/0x70\n [  605.603648]  ? add_taint+0x2a/0x70\n [  605.603670]  ? end_report.cold+0x51/0x75\n [  605.603693]  ? bond_start_xmit+0xbfb/0xc20 [bonding]\n [  605.603731]  bond_start_xmit+0x623/0xc20 [bonding]",
           "Severity": "HIGH",
@@ -18021,7 +18021,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:b639a123bf29a89a361ff3106f11fe985e5ae30b924b2e908e6126a29f175a5a",
+          "Fingerprint": "sha256:f4953bf86a09f840ba3d4964c9a9a8b86870a12f4689290957f605783c7bcc3a",
           "Title": "kernel: ALSA: usb-audio: Prevent excessive number of frames",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: usb-audio: Prevent excessive number of frames\n\nIn this case, the user constructed the parameters with maxpacksize 40\nfor rate 22050 / pps 1000, and packsize[0] 22 packsize[1] 23. The buffer\nsize for each data URB is maxpacksize * packets, which in this example\nis 40 * 6 = 240; When the user performs a write operation to send audio\ndata into the ALSA PCM playback stream, the calculated number of frames\nis packsize[0] * packets = 264, which exceeds the allocated URB buffer\nsize, triggering the out-of-bounds (OOB) issue reported by syzbot [1].\n\nAdded a check for the number of single data URB frames when calculating\nthe number of frames to prevent [1].\n\n[1]\nBUG: KASAN: slab-out-of-bounds in copy_to_urb+0x261/0x460 sound/usb/pcm.c:1487\nWrite of size 264 at addr ffff88804337e800 by task syz.0.17/5506\nCall Trace:\n copy_to_urb+0x261/0x460 sound/usb/pcm.c:1487\n prepare_playback_urb+0x953/0x13d0 sound/usb/pcm.c:1611\n prepare_outbound_urb+0x377/0xc50 sound/usb/endpoint.c:333",
           "Severity": "HIGH",
@@ -18081,7 +18081,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:ff8306ba0ca1165ca1e051ca2ddf1f9a0f511eedee79e8a8028321b22fa384da",
+          "Fingerprint": "sha256:58dfb27d760004bff008684682619bcea44ec755ac9bb92e9c346ca1ccaa537c",
           "Title": "kernel: ksmbd: add chann_lock to protect ksmbd_chann_list xarray",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: add chann_lock to protect ksmbd_chann_list xarray\n\nksmbd_chann_list xarray lacks synchronization, allowing use-after-free in\nmulti-channel sessions (between lookup_chann_list() and ksmbd_chann_del).\n\nAdds rw_semaphore chann_lock to struct ksmbd_session and protects\nall xa_load/xa_store/xa_erase accesses.",
           "Severity": "HIGH",
@@ -18131,7 +18131,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:e487a16fdfff96534bcfd725ddb6f21e6a9c0f26fe3f4430147f3db1411d1e5e",
+          "Fingerprint": "sha256:08195fb05b4616d621ae3bf4fda6196acb302e0478e127b24efedb06dd569b61",
           "Title": "kernel: drm/exynos: vidi: use ctx-\u003elock to protect struct vidi_context member variables related to memory alloc/free",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/exynos: vidi: use ctx-\u003elock to protect struct vidi_context member variables related to memory alloc/free\n\nExynos Virtual Display driver performs memory alloc/free operations\nwithout lock protection, which easily causes concurrency problem.\n\nFor example, use-after-free can occur in race scenario like this:\n```\n\tCPU0\t\t\t\tCPU1\t\t\t\tCPU2\n\t----\t\t\t\t----\t\t\t\t----\n  vidi_connection_ioctl()\n    if (vidi-\u003econnection) // true\n      drm_edid = drm_edid_alloc(); // alloc drm_edid\n      ...\n      ctx-\u003eraw_edid = drm_edid;\n      ...\n\t\t\t\t\t\t\t\tdrm_mode_getconnector()\n\t\t\t\t\t\t\t\t  drm_helper_probe_single_connector_modes()\n\t\t\t\t\t\t\t\t    vidi_get_modes()\n\t\t\t\t\t\t\t\t      if (ctx-\u003eraw_edid) // true\n\t\t\t\t\t\t\t\t        drm_edid_dup(ctx-\u003eraw_edid);\n\t\t\t\t\t\t\t\t          if (!drm_edid) // false\n\t\t\t\t\t\t\t\t          ...\n\t\t\t\tvidi_connection_ioctl()\n\t\t\t\t  if (vidi-\u003econnection) // false\n\t\t\t\t    drm_edid_free(ctx-\u003eraw_edid); // free drm_edid\n\t\t\t\t    ...\n\t\t\t\t\t\t\t\t          drm_edid_alloc(drm_edid-\u003eedid)\n\t\t\t\t\t\t\t\t            kmemdup(edid); // UAF!!\n\t\t\t\t\t\t\t\t            ...\n```\n\nTo prevent these vulns, at least in vidi_context, member variables related\nto memory alloc/free should be protected with ctx-\u003elock.",
           "Severity": "HIGH",
@@ -18183,7 +18183,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:fa9d1de9a79c6173c024ed1957bd4d7b6949cc3363ff33b4a2bbef5536987f0b",
+          "Fingerprint": "sha256:1cb4013a880751cd70b736c90528de4f555c2cba7fbadd34f329bfac87b81f31",
           "Title": "kernel: kernel: Privilege escalation or denial of service via use-after-free in nf_tables_addchain()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: fix use-after-free in nf_tables_addchain()\n\nnf_tables_addchain() publishes the chain to table-\u003echains via\nlist_add_tail_rcu() (in nft_chain_add()) before registering hooks.\nIf nf_tables_register_hook() then fails, the error path calls\nnft_chain_del() (list_del_rcu()) followed by nf_tables_chain_destroy()\nwith no RCU grace period in between.\n\nThis creates two use-after-free conditions:\n\n 1) Control-plane: nf_tables_dump_chains() traverses table-\u003echains\n    under rcu_read_lock(). A concurrent dump can still be walking\n    the chain when the error path frees it.\n\n 2) Packet path: for NFPROTO_INET, nf_register_net_hook() briefly\n    installs the IPv4 hook before IPv6 registration fails.  Packets\n    entering nft_do_chain() via the transient IPv4 hook can still be\n    dereferencing chain-\u003eblob_gen_X when the error path frees the\n    chain.\n\nAdd synchronize_rcu() between nft_chain_del() and the chain destroy\nso that all RCU readers -- both dump threads and in-flight packet\nevaluation -- have finished before the chain is freed.",
           "Severity": "HIGH",
@@ -18263,7 +18263,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:3747e511ee28ce2de824fec8de3acb3b849824bd73aedd537e5f9a55586c4ef5",
+          "Fingerprint": "sha256:2767db7d2f3542a624712a66be6955327df921e35667da2ef6b1d1fcb963eb62",
           "Title": "kernel: Linux kernel: Denial of service and memory corruption in RDMA umad",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/umad: Reject negative data_len in ib_umad_write\n\nib_umad_write computes data_len from user-controlled count and the\nMAD header sizes. With a mismatched user MAD header size and RMPP\nheader length, data_len can become negative and reach ib_create_send_mad().\nThis can make the padding calculation exceed the segment size and trigger\nan out-of-bounds memset in alloc_send_rmpp_list().\n\nAdd an explicit check to reject negative data_len before creating the\nsend buffer.\n\nKASAN splat:\n[  211.363464] BUG: KASAN: slab-out-of-bounds in ib_create_send_mad+0xa01/0x11b0\n[  211.364077] Write of size 220 at addr ffff88800c3fa1f8 by task spray_thread/102\n[  211.365867] ib_create_send_mad+0xa01/0x11b0\n[  211.365887] ib_umad_write+0x853/0x1c80",
           "Severity": "HIGH",
@@ -18317,7 +18317,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:6d796b0c2a9091c061d5f55207d58ec79855436c5dd641a4d0d8c7b22933f2ad",
+          "Fingerprint": "sha256:f6c055e031baa0291adfb67908b49fc0aada3cb4b0b0e9e9d4db4bdbdb636b22",
           "Title": "kernel: Linux kernel: Use-after-free in traffic control (act_ct) may lead to denial of service or privilege escalation",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: Only allow act_ct to bind to clsact/ingress qdiscs and shared blocks\n\nAs Paolo said earlier [1]:\n\n\"Since the blamed commit below, classify can return TC_ACT_CONSUMED while\nthe current skb being held by the defragmentation engine. As reported by\nGangMin Kim, if such packet is that may cause a UaF when the defrag engine\nlater on tries to tuch again such packet.\"\n\nact_ct was never meant to be used in the egress path, however some users\nare attaching it to egress today [2]. Attempting to reach a middle\nground, we noticed that, while most qdiscs are not handling\nTC_ACT_CONSUMED, clsact/ingress qdiscs are. With that in mind, we\naddress the issue by only allowing act_ct to bind to clsact/ingress\nqdiscs and shared blocks. That way it's still possible to attach act_ct to\negress (albeit only with clsact).\n\n[1] https://lore.kernel.org/netdev/674b8cbfc385c6f37fb29a1de08d8fe5c2b0fbee.1771321118.git.pabeni@redhat.com/\n[2] https://lore.kernel.org/netdev/cc6bfb4a-4a2b-42d8-b9ce-7ef6644fb22b@ovn.org/",
           "Severity": "HIGH",
@@ -18368,7 +18368,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:ac3daab919c3fdbdebb195f3d27eb6b7653ba31b53cc0a9897e60ae76a89cb41",
+          "Fingerprint": "sha256:a40025c483c2b92f3761877ae74b94fe53dea69020a8c9bc8883ff5fa00f49dc",
           "Title": "kernel: mm: thp: deny THP for files on anonymous inodes",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm: thp: deny THP for files on anonymous inodes\n\nfile_thp_enabled() incorrectly allows THP for files on anonymous inodes\n(e.g. guest_memfd and secretmem). These files are created via\nalloc_file_pseudo(), which does not call get_write_access() and leaves\ninode-\u003ei_writecount at 0. Combined with S_ISREG(inode-\u003ei_mode) being\ntrue, they appear as read-only regular files when\nCONFIG_READ_ONLY_THP_FOR_FS is enabled, making them eligible for THP\ncollapse.\n\nAnonymous inodes can never pass the inode_is_open_for_write() check\nsince their i_writecount is never incremented through the normal VFS\nopen path. The right thing to do is to exclude them from THP eligibility\naltogether, since CONFIG_READ_ONLY_THP_FOR_FS was designed for real\nfilesystem files (e.g. shared libraries), not for pseudo-filesystem\ninodes.\n\nFor guest_memfd, this allows khugepaged and MADV_COLLAPSE to create\nlarge folios in the page cache via the collapse path, but the\nguest_memfd fault handler does not support large folios. This triggers\nWARN_ON_ONCE(folio_test_large(folio)) in kvm_gmem_fault_user_mapping().\n\nFor secretmem, collapse_file() tries to copy page contents through the\ndirect map, but secretmem pages are removed from the direct map. This\ncan result in a kernel crash:\n\n    BUG: unable to handle page fault for address: ffff88810284d000\n    RIP: 0010:memcpy_orig+0x16/0x130\n    Call Trace:\n     collapse_file\n     hpage_collapse_scan_file\n     madvise_collapse\n\nSecretmem is not affected by the crash on upstream as the memory failure\nrecovery handles the failed copy gracefully, but it still triggers\nconfusing false memory failure reports:\n\n    Memory failure: 0x106d96f: recovery action for clean unevictable\n    LRU page: Recovered\n\nCheck IS_ANON_FILE(inode) in file_thp_enabled() to deny THP for all\nanonymous inode files.",
           "Severity": "HIGH",
@@ -18415,7 +18415,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:55c78ed0bc6a2cdce677d3d47657b2d2f826606dbe42d8b17799ef0d0e814267",
+          "Fingerprint": "sha256:8e2fe166d4c4d0c03a7ae83cb6d9a0dd8fafd05bdba66caece499f5042c6fc68",
           "Title": "kernel: netfilter: nf_tables: release flowtable after rcu grace period on error",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: release flowtable after rcu grace period on error\n\nCall synchronize_rcu() after unregistering the hooks from error path,\nsince a hook that already refers to this flowtable can be already\nregistered, exposing this flowtable to packet path and nfnetlink_hook\ncontrol plane.\n\nThis error path is rare, it should only happen by reaching the maximum\nnumber hooks or by failing to set up to hardware offload, just call\nsynchronize_rcu().\n\nThere is a check for already used device hooks by different flowtable\nthat could result in EEXIST at this late stage. The hook parser can be\nupdated to perform this check earlier to this error path really becomes\nrarely exercised.\n\nUncovered by KASAN reported as use-after-free from nfnetlink_hook path\nwhen dumping hooks.",
           "Severity": "HIGH",
@@ -18466,7 +18466,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:da6f8d96c262434e899a8e8f1b1bdc237efcdda616566e280044094f8105c82c",
+          "Fingerprint": "sha256:ef192d6f4c098243be796355796cafc139a7a6851b2d9d755cc117e2be213077",
           "Title": "kernel: KVM: x86/mmu: Drop/zap existing present SPTE even when creating an MMIO SPTE",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86/mmu: Drop/zap existing present SPTE even when creating an MMIO SPTE\n\nWhen installing an emulated MMIO SPTE, do so *after* dropping/zapping the\nexisting SPTE (if it's shadow-present).  While commit a54aa15c6bda3 was\nright about it being impossible to convert a shadow-present SPTE to an\nMMIO SPTE due to a _guest_ write, it failed to account for writes to guest\nmemory that are outside the scope of KVM.\n\nE.g. if host userspace modifies a shadowed gPTE to switch from a memslot\nto emulted MMIO and then the guest hits a relevant page fault, KVM will\ninstall the MMIO SPTE without first zapping the shadow-present SPTE.\n\n  ------------[ cut here ]------------\n  is_shadow_present_pte(*sptep)\n  WARNING: arch/x86/kvm/mmu/mmu.c:484 at mark_mmio_spte+0xb2/0xc0 [kvm], CPU#0: vmx_ept_stale_r/4292\n  Modules linked in: kvm_intel kvm irqbypass\n  CPU: 0 UID: 1000 PID: 4292 Comm: vmx_ept_stale_r Not tainted 7.0.0-rc2-eafebd2d2ab0-sink-vm #319 PREEMPT\n  Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015\n  RIP: 0010:mark_mmio_spte+0xb2/0xc0 [kvm]\n  Call Trace:\n   \u003cTASK\u003e\n   mmu_set_spte+0x237/0x440 [kvm]\n   ept_page_fault+0x535/0x7f0 [kvm]\n   kvm_mmu_do_page_fault+0xee/0x1f0 [kvm]\n   kvm_mmu_page_fault+0x8d/0x620 [kvm]\n   vmx_handle_exit+0x18c/0x5a0 [kvm_intel]\n   kvm_arch_vcpu_ioctl_run+0xc55/0x1c20 [kvm]\n   kvm_vcpu_ioctl+0x2d5/0x980 [kvm]\n   __x64_sys_ioctl+0x8a/0xd0\n   do_syscall_64+0xb5/0x730\n   entry_SYSCALL_64_after_hwframe+0x4b/0x53\n  RIP: 0033:0x47fa3f\n   \u003c/TASK\u003e\n  ---[ end trace 0000000000000000 ]---",
           "Severity": "HIGH",
@@ -18517,7 +18517,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:89603d00beddfc8524b42ec99f5a9518cd1664f516fc0bc40cd5defae9eab9a4",
+          "Fingerprint": "sha256:c8801f0338e42cbb85f245a574ec314d9faaad0279bba7d60288f462c9bdf895",
           "Title": "kernel: netfilter: nf_conntrack_h323: check for zero length in DecodeQ931()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_conntrack_h323: check for zero length in DecodeQ931()\n\nIn DecodeQ931(), the UserUserIE code path reads a 16-bit length from\nthe packet, then decrements it by 1 to skip the protocol discriminator\nbyte before passing it to DecodeH323_UserInformation(). If the encoded\nlength is 0, the decrement wraps to -1, which is then passed as a\nlarge value to the decoder, leading to an out-of-bounds read.\n\nAdd a check to ensure len is positive after the decrement.",
           "Severity": "HIGH",
@@ -18567,7 +18567,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:9b439076845a9ed3096f2dfb4634824425cf5fba4d152b15e8262cd744efacd3",
+          "Fingerprint": "sha256:acbe4951ce4b8e8a9a27f3aea29effa41c754d8b06f69392582d136de4b0b664",
           "Title": "kernel: nfsd: fix heap overflow in NFSv4.0 LOCK replay cache",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: fix heap overflow in NFSv4.0 LOCK replay cache\n\nThe NFSv4.0 replay cache uses a fixed 112-byte inline buffer\n(rp_ibuf[NFSD4_REPLAY_ISIZE]) to store encoded operation responses.\nThis size was calculated based on OPEN responses and does not account\nfor LOCK denied responses, which include the conflicting lock owner as\na variable-length field up to 1024 bytes (NFS4_OPAQUE_LIMIT).\n\nWhen a LOCK operation is denied due to a conflict with an existing lock\nthat has a large owner, nfsd4_encode_operation() copies the full encoded\nresponse into the undersized replay buffer via read_bytes_from_xdr_buf()\nwith no bounds check. This results in a slab-out-of-bounds write of up\nto 944 bytes past the end of the buffer, corrupting adjacent heap memory.\n\nThis can be triggered remotely by an unauthenticated attacker with two\ncooperating NFSv4.0 clients: one sets a lock with a large owner string,\nthen the other requests a conflicting lock to provoke the denial.\n\nWe could fix this by increasing NFSD4_REPLAY_ISIZE to allow for a full\nopaque, but that would increase the size of every stateowner, when most\nlockowners are not that large.\n\nInstead, fix this by checking the encoded response length against\nNFSD4_REPLAY_ISIZE before copying into the replay buffer. If the\nresponse is too large, set rp_buflen to 0 to skip caching the replay\npayload. The status is still cached, and the client already received the\ncorrect response on the original request.",
           "Severity": "HIGH",
@@ -18617,7 +18617,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:4db15b44136e06ea561aaed2480f6c90beeb1444a9238220fe7fe6f334daafd8",
+          "Fingerprint": "sha256:362ff6cec71446d83d898a91879e2d144fb4fc91477bc71fb2bcb5dc7b3b254d",
           "Title": "kernel: Bluetooth: SCO: Fix use-after-free in sco_recv_frame() due to missing sock_hold",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: SCO: Fix use-after-free in sco_recv_frame() due to missing sock_hold\n\nsco_recv_frame() reads conn-\u003esk under sco_conn_lock() but immediately\nreleases the lock without holding a reference to the socket. A concurrent\nclose() can free the socket between the lock release and the subsequent\nsk-\u003esk_state access, resulting in a use-after-free.\n\nOther functions in the same file (sco_sock_timeout(), sco_conn_del())\ncorrectly use sco_sock_hold() to safely hold a reference under the lock.\n\nFix by using sco_sock_hold() to take a reference before releasing the\nlock, and adding sock_put() on all exit paths.",
           "Severity": "HIGH",
@@ -18666,7 +18666,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:000bdd89888700b9f94194906319b5b0c1bf765463e7d21c47d1b9fa7d4d5480",
+          "Fingerprint": "sha256:3d61c61535a763dbf61e4be6c0ce42e179f5c5f47c4d20275f92e5844ded2eed",
           "Title": "kernel: net: atm: fix crash due to unvalidated vcc pointer in sigd_send()",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: atm: fix crash due to unvalidated vcc pointer in sigd_send()\n\nReproducer available at [1].\n\nThe ATM send path (sendmsg -\u003e vcc_sendmsg -\u003e sigd_send) reads the vcc\npointer from msg-\u003evcc and uses it directly without any validation. This\npointer comes from userspace via sendmsg() and can be arbitrarily forged:\n\n    int fd = socket(AF_ATMSVC, SOCK_DGRAM, 0);\n    ioctl(fd, ATMSIGD_CTRL);  // become ATM signaling daemon\n    struct msghdr msg = { .msg_iov = \u0026iov, ... };\n    *(unsigned long *)(buf + 4) = 0xdeadbeef;  // fake vcc pointer\n    sendmsg(fd, \u0026msg, 0);  // kernel dereferences 0xdeadbeef\n\nIn normal operation, the kernel sends the vcc pointer to the signaling\ndaemon via sigd_enq() when processing operations like connect(), bind(),\nor listen(). The daemon is expected to return the same pointer when\nresponding. However, a malicious daemon can send arbitrary pointer values.\n\nFix this by introducing find_get_vcc() which validates the pointer by\nsearching through vcc_hash (similar to how sigd_close() iterates over\nall VCCs), and acquires a reference via sock_hold() if found.\n\nSince struct atm_vcc embeds struct sock as its first member, they share\nthe same lifetime. Therefore using sock_hold/sock_put is sufficient to\nkeep the vcc alive while it is being used.\n\nNote that there may be a race with sigd_close() which could mark the vcc\nwith various flags (e.g., ATM_VF_RELEASED) after find_get_vcc() returns.\nHowever, sock_hold() guarantees the memory remains valid, so this race\nonly affects the logical state, not memory safety.\n\n[1]: https://gist.github.com/mrpre/1ba5949c45529c511152e2f4c755b0f3",
           "Severity": "HIGH",
@@ -18717,7 +18717,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:29388579200b583be3e3494a4e35edbbc0aa0e337fd1a7216f8e718d6260ddbb",
+          "Fingerprint": "sha256:466b7d77bb8fd68deedd159229cc984d2aa5810845fca122f156ab8c772c47a1",
           "Title": "kernel: Linux kernel: Use-after-free in bonding driver leads to denial of service",
           "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: bonding: fix use-after-free in bond_xmit_broadcast()\n\nbond_xmit_broadcast() reuses the original skb for the last slave\n(determined by bond_is_last_slave()) and clones it for others.\nConcurrent slave enslave/release can mutate the slave list during\nRCU-protected iteration, changing which slave is \"last\" mid-loop.\nThis causes the original skb to be double-consumed (double-freed).\n\nReplace the racy bond_is_last_slave() check with a simple index\ncomparison (i + 1 == slaves_count) against the pre-snapshot slave\ncount taken via READ_ONCE() before the loop.  This preserves the\nzero-copy optimization for the last slave while making the \"last\"\ndetermination stable against concurrent list mutations.\n\nThe UAF can trigger the following crash:\n\n==================================================================\nBUG: KASAN: slab-use-after-free in skb_clone\nRead of size 8 at addr ffff888100ef8d40 by task exploit/147\n\nCPU: 1 UID: 0 PID: 147 Comm: exploit Not tainted 7.0.0-rc3+ #4 PREEMPTLAZY\nCall Trace:\n \u003cTASK\u003e\n dump_stack_lvl (lib/dump_stack.c:123)\n print_report (mm/kasan/report.c:379 mm/kasan/report.c:482)\n kasan_report (mm/kasan/report.c:597)\n skb_clone (include/linux/skbuff.h:1724 include/linux/skbuff.h:1792 include/linux/skbuff.h:3396 net/core/skbuff.c:2108)\n bond_xmit_broadcast (drivers/net/bonding/bond_main.c:5334)\n bond_start_xmit (drivers/net/bonding/bond_main.c:5567 drivers/net/bonding/bond_main.c:5593)\n dev_hard_start_xmit (include/linux/netdevice.h:5325 include/linux/netdevice.h:5334 net/core/dev.c:3871 net/core/dev.c:3887)\n __dev_queue_xmit (include/linux/netdevice.h:3601 net/core/dev.c:4838)\n ip6_finish_output2 (include/net/neighbour.h:540 include/net/neighbour.h:554 net/ipv6/ip6_output.c:136)\n ip6_finish_output (net/ipv6/ip6_output.c:208 net/ipv6/ip6_output.c:219)\n ip6_output (net/ipv6/ip6_output.c:250)\n ip6_send_skb (net/ipv6/ip6_output.c:1985)\n udp_v6_send_skb (net/ipv6/udp.c:1442)\n udpv6_sendmsg (net/ipv6/udp.c:1733)\n __sys_sendto (net/socket.c:730 net/socket.c:742 net/socket.c:2206)\n __x64_sys_sendto (net/socket.c:2209)\n do_syscall_64 (arch/x86/entry/syscall_64.c:63 arch/x86/entry/syscall_64.c:94)\n entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:130)\n \u003c/TASK\u003e\n\nAllocated by task 147:\n\nFreed by task 147:\n\nThe buggy address belongs to the object at ffff888100ef8c80\n which belongs to the cache skbuff_head_cache of size 224\nThe buggy address is located 192 bytes inside of\n freed 224-byte region [ffff888100ef8c80, ffff888100ef8d60)\n\nMemory state around the buggy address:\n ffff888100ef8c00: fb fb fb fb fc fc fc fc fc fc fc fc fc fc fc fc\n ffff888100ef8c80: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb\n\u003effff888100ef8d00: fb fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc\n                                                    ^\n ffff888100ef8d80: fc fc fc fc fc fc fc fc fa fb fb fb fb fb fb fb\n ffff888100ef8e00: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb\n==================================================================",
           "Severity": "HIGH",
@@ -18764,7 +18764,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:92227465fa8c481e5a03153a46be99c856006fbdfa00717801fe0ed15d163415",
+          "Fingerprint": "sha256:aa279dcbab9a3f6397cf3d84abc93aa77cd24cda5bb306dea323d431a972c2b0",
           "Title": "ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.",
           "Description": "The infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c.",
           "Severity": "HIGH",
@@ -18833,7 +18833,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:75980c34f9a91484959464f389820bc7a6767bbe9e6ac716589a2485746db6d3",
+          "Fingerprint": "sha256:7ff7b74d5da91d46813f96752e1c92f0c9e545c6b425e2047e96d512037491c6",
           "Title": "ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.",
           "Description": "The infocmp command-line tool in ncurses before 6.5-20251213 has a stack-based buffer overflow in analyze_string in progs/infocmp.c.",
           "Severity": "HIGH",
@@ -18905,7 +18905,7 @@
             "Name": "Debian Security Tracker",
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Fingerprint": "sha256:3a8c6ac2db59a7a61cacb711b0281f6842ecdd80bb919b67d58ae7f5e117650b",
+          "Fingerprint": "sha256:9897fd69a30bc80e0037f28026e37892e7ee52bf316ebdcc0499ce4bf60e195b",
           "Title": "openssl: OpenSSL: Denial of Service due to NULL pointer dereference in CMS EnvelopedData processing",
           "Description": "Issue summary: During processing of a crafted CMS EnvelopedData message\nwith KeyTransportRecipientInfo a NULL pointer dereference can happen.\n\nImpact summary: Applications that process attacker-controlled CMS data may\ncrash before authentication or cryptographic operations occur resulting in\nDenial of Service.\n\nWhen a CMS EnvelopedData message that uses KeyTransportRecipientInfo with\nRSA-OAEP encryption is processed, the optional parameters field of\nRSA-OAEP SourceFunc algorithm identifier is examined without checking\nfor its presence. This results in a NULL pointer dereference if the field\nis missing.\n\nApplications and services that call CMS_decrypt() on untrusted input\n(e.g., S/MIME processing or CMS-based protocols) are vulnerable.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this\nissue, as the affected code is outside the OpenSSL FIPS module boundary.",
           "Severity": "HIGH",

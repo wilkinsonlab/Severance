@@ -79,7 +79,7 @@ echo "END"
 cp inner-docker-compose-template-template.yml inner-docker-compose-template-tmp.yml
 cp outer-docker-compose-template-template.yml outer-docker-compose-template-tmp.yml
 sed -i'' -e "s!{SIN}!${SIN}!" "inner-docker-compose-template-tmp.yml"
-sed -i'' -e "s!{SOUT}!${FDSOUTPC}!" "outer-docker-compose-template-tmp.yml"
+sed -i'' -e "s!{SOUT}!${SOUT}!" "outer-docker-compose-template-tmp.yml"
 
 mv inner-docker-compose-template-tmp.yml ../internal/docker-compose.yml
 mv outer-docker-compose-template-tmp.yml ../external/docker-compose.yml
