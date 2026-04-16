@@ -9,25 +9,27 @@ require_relative 'annotation_parser'
 include QueryAnnotationParser
 
 # External service URL (e.g. the UI / orchestrator service)
-EXTERNAL_URL = ENV.fetch('EXTERNAL_URL')
+EXTERNAL_URL = ENV.fetch('EXTERNAL_URL', 'http://localhost')
 
 # Triplestore SPARQL endpoint URL
-TRIPLESTORE_URL = ENV.fetch('TRIPLESTORE_URL')
+TRIPLESTORE_URL = ENV.fetch('TRIPLESTORE_URL', 'http://localhost')
 
 # Directory containing the .rq query files (usually mounted read-only)
-QUERY_DIR = ENV.fetch('QUERY_DIR')
+QUERY_DIR = ENV.fetch('QUERY_DIR', '')
 
 # How often to poll the external service for new jobs (in seconds)
-POLL_INTERVAL = ENV.fetch('POLL_INTERVAL', 10).to_i
+POLL_INTERVAL = ENV.fetch('POLL_INTERVAL', 10)&.to_i
 
 # Output format for SPARQL results: 'json' (default) or 'csv'
-RESULT_FORMAT = ENV['RESULT_FORMAT'] == 'csv' ? 'csv' : 'json'
+result = ENV.fetch('RESULT_FORMAT', 'json').to_s.strip.downcase
+RESULT_FORMAT = result == 'csv' ? 'csv' : 'json'
 
 # Accept header sent to the triplestore
 ACCEPT_HEADER = RESULT_FORMAT == 'csv' ? 'text/csv' : 'application/sparql-results+json'
 
 # AES-256-GCM encryption key derived from hex environment variable
-ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX')].pack('H*')
+ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX',
+                            '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef')]&.pack('H*')
 
 # ============== AES-256-GCM helpers ==============
 
@@ -146,7 +148,13 @@ def validate_query(_query)
 end
 
 def process_queries
-  queries = QueryAnnotationParser::Parser.process_folder(QUERY_DIR)
+  begin
+    queries = QueryAnnotationParser::Parser.process_folder(QUERY_DIR)
+  rescue StandardError
+    warn "⚠ Failed to parse query annotations in #{QUERY_DIR}: #{$!.class} - #{$!.message}"
+    return {}
+  end
+
   all_queries = {}
   # Build the final list that Outie expects
   available_queries = queries.map do |metadata|
@@ -215,13 +223,22 @@ loop do
   # so the UI can list available queries and later request them by ID.
   all_queries = process_queries
 
-  poll_uri = URI("#{EXTERNAL_URL}/severance/queue/pull")
-  warn "Polling for new jobs at #{poll_uri.inspect}..."
-  http = Net::HTTP.new(poll_uri.hostname, poll_uri.port)
-  http.use_ssl = (poll_uri.scheme == 'https')
-  response = http.request(Net::HTTP::Get.new(poll_uri))
-
-  if response.code == '204'
+  begin
+    poll_uri = URI("#{EXTERNAL_URL}/severance/queue/pull")
+    warn "Polling for new jobs at #{poll_uri.inspect}..."
+    http = Net::HTTP.new(poll_uri.hostname, poll_uri.port)
+    http.use_ssl = (poll_uri.scheme == 'https')
+    response = http.request(Net::HTTP::Get.new(poll_uri))
+  rescue StandardError => e
+    warn "⚠ Failed to poll for jobs: #{e.class} - #{e.message}"
+    sleep POLL_INTERVAL
+    next
+  end
+  unless response.is_a?(Net::HTTPSuccess)
+    sleep POLL_INTERVAL
+    next
+  end
+  unless response.body && !response.body.strip.empty?
     sleep POLL_INTERVAL
     next
   end
@@ -299,17 +316,21 @@ loop do
   # warn "Encrypted size: #{encrypted_result.bytesize} bytes"
 
   # === Push encrypted result to external service ===
-  push_uri = URI("#{EXTERNAL_URL}/severance/jobs/#{uuid}/result")
-  http = Net::HTTP.new(push_uri.hostname, push_uri.port)
-  http.use_ssl = (push_uri.scheme == 'https')
+  begin
+    push_uri = URI("#{EXTERNAL_URL}/severance/jobs/#{uuid}/result")
+    http = Net::HTTP.new(push_uri.hostname, push_uri.port)
+    http.use_ssl = (push_uri.scheme == 'https')
 
-  push_req = Net::HTTP::Post.new(push_uri)
-  push_req['Content-Type'] = 'application/octet-stream'   # ← changed for binary encrypted data
-  push_req.body = encrypted_result                        # binary data, do NOT force_encoding to UTF-8
+    push_req = Net::HTTP::Post.new(push_uri)
+    push_req['Content-Type'] = 'application/octet-stream'   # ← changed for binary encrypted data
+    push_req.body = encrypted_result                        # binary data, do NOT force_encoding to UTF-8
 
-  push_res = http.request(push_req)
-  warn "Job #{uuid} completed (push status: #{push_res.code})"
-  puts "[#{Time.now}] Job #{uuid} for query #{query_id} finished"
-  # Small delay before next poll
+    push_res = http.request(push_req)
+    warn "Job #{uuid} completed (push status: #{push_res.code})"
+    puts "[#{Time.now}] Job #{uuid} for query #{query_id} finished"
+    # Small delay before next poll
+  rescue StandardError => e
+    warn "⚠ Failed to push results for job #{uuid}: #{e.class} - #{e.message}"
+  end
   sleep POLL_INTERVAL
 end

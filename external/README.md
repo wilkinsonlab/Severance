@@ -34,7 +34,7 @@ The `ENCRYPTION_KEY_HEX` must be shared with the external componenet, since all 
 
     services:
         external:
-            image: markw/severance-external:0.1.0
+            image: XXXXX  (the docker-compose in the example, it points to the latest patch)
             ports: ["3000:3000"]  # runs on 3000 internally
             env_file:
                 - .env

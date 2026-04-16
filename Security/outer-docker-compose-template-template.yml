@@ -1,6 +1,6 @@
 services:
   external:
-    image: 
+    image: {SOUT}
     ports: ["3000:3000"]
     env_file:
       - .env

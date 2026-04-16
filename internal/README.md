@@ -45,6 +45,7 @@ Test your access to the external URL by calling, e.g. `http://111.111.111.111:30
     services:
     internal:
         network_mode: host
+        image: XXXXX  (the docker-compose in the example, it points to the latest patch)        env_file: .env
         volumes:
         - "./queries:/queries"
         tmpfs:
@@ -53,8 +54,6 @@ Test your access to the external URL by calling, e.g. `http://111.111.111.111:30
         - TMPDIR=/tmp
         - UID=${UID:-1000}   # see .env file for how to set this
         - GID=${GID:-1000}
-        image: markw/severance-internal:0.1.0
-        env_file: .env
         user: "${UID:-1000}:${GID:-1000}"   # Run container as your host user, or 1000 fallback (which is usually the first non-root user created on a Linux system)  
         
 

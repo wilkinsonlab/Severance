@@ -30,7 +30,8 @@ warn "RESULT_FORMAT = #{ENV['RESULT_FORMAT'].inspect}"
 warn '========================='
 
 # AES-256-GCM encryption key derived from hex environment variable
-ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX')].pack('H*')
+ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX',
+                            '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef')].pack('H*')
 
 # Content-Type for query results (json or csv)
 CONTENT_TYPE = ENV['RESULT_FORMAT'] == 'csv' ? 'text/csv' : 'application/sparql-results+json'
@@ -154,8 +155,12 @@ post '/severance/available_queries' do
   queries = JSON.parse(request.body.read)
   metadata_dir = ENV.fetch('METADATA_DIR', '/metadata')
   active_queries_path = "#{metadata_dir}/active_queries.json"
-
-  File.write(active_queries_path, JSON.pretty_generate(queries))
+  begin
+    File.write(active_queries_path, JSON.pretty_generate(queries))
+  rescue Errno::EACCES => e
+    warn "❌ Permission error writing available queries: #{e.message}"
+    halt 500, { error: 'Permission denied writing available queries' }.to_json
+  end
   warn "✓ Received and saved #{queries.size} available queries to #{active_queries_path}"
 
   status 200
