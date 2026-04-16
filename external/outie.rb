@@ -153,9 +153,11 @@ end
 # @return [500] on other errors
 post '/severance/available_queries' do
   queries = JSON.parse(request.body.read)
-  metadata_dir = ENV.fetch('METADATA_DIR', '/metadata')
+  metadata_dir = ENV.fetch('METADATA_DIR', '/queries-metadata')
+  warn "Metadata directory for available queries: #{metadata_dir}"
   active_queries_path = "#{metadata_dir}/active_queries.json"
   begin
+    warn 'I Am', `whoami`
     File.write(active_queries_path, JSON.pretty_generate(queries))
   rescue Errno::EACCES => e
     warn "❌ Permission error writing available queries: #{e.message}"
@@ -180,7 +182,7 @@ end
 
 # Returns the current list of available queries (previously pushed by Innie).
 get '/severance/available_queries' do
-  metadata_dir = ENV.fetch('METADATA_DIR', '/metadata')
+  metadata_dir = ENV.fetch('METADATA_DIR', '/queries-metadata')
   active_queries_path = "#{metadata_dir}/active_queries.json"
 
   if File.exist?(active_queries_path)

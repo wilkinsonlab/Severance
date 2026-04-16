@@ -42,6 +42,17 @@ Test your access to the external URL by calling, e.g. `http://111.111.111.111:30
 
 ### docker-compose.yml
 
+For security, this container runs with the permissions of the user who you declare in the .env as the user who will be starting this container.
+
+NEVER START IT AS ROOT!!  YOU HAVE BEEN WARNED!
+
+UID AND GID MUST BE CORRECT!  See instructions in the env_template and below for how to know that
+**You must get the permissions correct, or the container will not run properly, if at all.**  
+
+Take a moment and figure out your UID and GID!  It defaults to 1000/1000, which is the first non-root user that is created on a system... but that is just a very bad guess.  Take a moment and get it right!
+
+The setting `network mode: host` is critical!  The internal code inside of the docker container must be able to "see" the external component, just as you did when you tested it in the last step.  Please do not change that.
+
     services:
     internal:
         network_mode: host
@@ -52,12 +63,11 @@ Test your access to the external URL by calling, e.g. `http://111.111.111.111:30
         - /tmp:size=64m,noexec,nosuid,nodev
         environment:
         - TMPDIR=/tmp
-        - UID=${UID:-1000}   # see .env file for how to set this
-        - GID=${GID:-1000}
+        - UID=${UID:-1000}   #the output of  id -u at the terminal, set in .env
+        - GID=${GID:-1000}   #the output of  id -g at the terminal, set in .env
         user: "${UID:-1000}:${GID:-1000}"   # Run container as your host user, or 1000 fallback (which is usually the first non-root user created on a Linux system)  
         
 
-The setting `network mode: host` is critical!  The internal code inside of the docker container must be able to "see" the external component, just as you did when you tested it in the last step.
 
 ### Start 
 
@@ -68,7 +78,7 @@ The setting `network mode: host` is critical!  The internal code inside of the d
 
 ## QUERIES
 
-In the `./queries` folder there are some examples of annotated queries that can be interpreted by Severance Internal.  If you modify these, your changes will be preserved from one compose-down/up to another.  If you need to fully reset, delete the content of the `./queries` folder and it will be re-populated with the example queries present in the image.
+In the `./queries` folder there are some examples of annotated queries that can be interpreted by Severance Internal.  If you modify these, your changes will be preserved from one compose-down/up to another.  If you need to fully reset, delete the content of the `./queries` folder and it will be re-populated with the example queries the next time you start.
 
 We provide some [guidance for how to author these queries](./queries/README.md) so that they can be interpreted by Severance and used to build a sensible UI on the External side, and also to help them be more universally discoverable based on their Query Type.
 

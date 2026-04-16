@@ -2,11 +2,10 @@
 set -e
 
 # create and/or Fix ownership of the mounted volume (runs as root)
-mkdir -p /metadata /data  
+mkdir -p /queries-metadata /data  
 
-chown -R "${UID:-1000}:${GID:-1000}" /metadata /data
-chmod -R u+rwX /metadata /data  
+chown -R "${UID:-1000}:${GID:-1000}" /queries-metadata /data
+chmod -R u+rwX /queries-metadata /data  
 
-# Drop privileges and run app
-# exec su-exec barelythere bundle exec ruby app.rb
-exec gosu severance bundle exec ruby outie.rb
+# Drop privileges and run app as current user
+exec bundle exec ruby outie.rb

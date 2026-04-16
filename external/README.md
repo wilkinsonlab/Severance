@@ -11,8 +11,10 @@
 
 ## Configuration
 
-1. Make a copy of the env_template file and edit it 
-2. save it as .env in the same folder as the docker-compose file
+1. create a new folder for your External server
+2. create a ./data and ./queries-metadata file (as your own user, NOT ROOT!)
+3. Copy the LATEST DOCKER COMPOSE FILE from the Severance ./external folder (this contains all patches)
+4. Open the env_template file, edit it, and save it as .env in the same folder as the docker-compose file
 
 ### env_template
 
@@ -23,7 +25,7 @@
     RESULTS_DIR=/data/results  # DO NOT CHANGE THIS unless you really know what you're doing
     AUTH_TOKEN=YesItsMe
     ALLOWED_INTERNAL_IPS=172.31.0.1,127.0.0.1,::1,192.168.1.100   # CHANGE 192.168.1.100 to the IP of Internal 
-    METADATA_DIR=/metadata  # Don't change this unless you know what you're doing
+    METADATA_DIR=/queries-metadata  # Don't change this unless you know what you're doing
 
 `ALLOWED_INTERNAL_IPS` is a whitelist of IP addresses that are allowed to access the portions of the API that do not require authentication.  It should be VERY restrictive - maybe including localhost/127.0.0.1 only during testing
 
@@ -34,13 +36,13 @@ The `ENCRYPTION_KEY_HEX` must be shared with the external componenet, since all 
 
     services:
         external:
-            image: XXXXX  (the docker-compose in the example, it points to the latest patch)
+            image: XXXXX  (the docker-compose in the Severance GitHub ./external folder points to the latest patch)
             ports: ["3000:3000"]  # runs on 3000 internally
             env_file:
                 - .env
             volumes:
                 - "./data:/data"
-                - "./queries-metadata:/metadata"
+                - "./queries-metadata:/queries-metadata"
             environment:
                 - RACK_ENV=production
                 - APP_ENV=production     # both for redundancy

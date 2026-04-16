@@ -3,7 +3,7 @@ timestamp=$(date +"%Y-%m-%d")
 rm -rf ./secury_scan_output/*.json
 
 # Severance Internal
-image="fairdatasystems/severance-internal:0.1.1"
+image="fairdatasystems/severance-internal:latest"
 name="sevinternal"
 docker rm ${name}
 
@@ -43,7 +43,7 @@ echo "END"
 
 
 # Severance External
-image="fairdatasystems/severance-external:0.1.1"
+image="fairdatasystems/severance-external:latest"
 name="sevexternal"
 docker rm ${name}
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
