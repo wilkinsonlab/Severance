@@ -29,6 +29,27 @@ warn "AUTH_TOKEN = #{ENV['AUTH_TOKEN'] ? '*** (present)' : 'NOT SET'}"
 warn "RESULT_FORMAT = #{ENV['RESULT_FORMAT'].inspect}"
 warn '========================='
 
+# Rack body wrapper that zeros out sensitive plaintext after the response
+# has been fully flushed to the socket. Rack guarantees close is called
+# after the last byte is written, so zeroing here is safe.
+class ZeroingBody
+  def initialize(data)
+    @data = data
+  end
+
+  def each
+    yield @data
+  end
+
+  def close
+    return unless @data
+    @data.replace("\0" * @data.bytesize)
+    @data.clear
+    @data = nil
+    GC.start(full_mark: true, immediate_sweep: true) if defined?(GC)
+  end
+end
+
 # AES-256-GCM encryption key derived from hex environment variable
 ENCRYPTION_KEY = [ENV.fetch('ENCRYPTION_KEY_HEX',
                             '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef')].pack('H*')
@@ -222,14 +243,11 @@ get '/severance/jobs/:uuid' do |uuid|
       # Decrypt
       plaintext = decrypt(encrypted)
 
-      # Send the response to the client
+      # Hand plaintext to ZeroingBody, which yields it to Puma then zeros
+      # it in close — called by Rack after the last byte hits the socket.
       content_type CONTENT_TYPE
-      body plaintext
-
-      # === ZERO OUT immediately after sending ===
-      plaintext&.replace("\0" * plaintext.bytesize)
-      plaintext&.clear
-      plaintext = nil
+      body ZeroingBody.new(plaintext)
+      plaintext = nil # ZeroingBody is now sole owner
 
       # Clean up files
       File.delete(result_file) if File.exist?(result_file)
@@ -243,13 +261,13 @@ get '/severance/jobs/:uuid' do |uuid|
       status 500
       body 'Server error'
     ensure
-      # Final safety net — zero out even if something went wrong
+      # Safety net: zero plaintext if an exception fired before ZeroingBody took ownership
       if plaintext
         plaintext.replace("\0" * plaintext.bytesize)
         plaintext.clear
         plaintext = nil
+        GC.start(full_mark: true, immediate_sweep: true) if defined?(GC)
       end
-      GC.start(full_mark: true, immediate_sweep: true) if defined?(GC)
     end
 
   else
