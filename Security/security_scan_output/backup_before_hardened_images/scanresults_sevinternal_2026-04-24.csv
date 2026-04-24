@@ -1,7 +1,5 @@
 Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
-fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2026-25210,expat,2.7.5,N/A,HIGH,libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation,https://avd.aquasec.com/nvd/cve-2026-25210
-fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2026-25210,libexpat1,2.7.5,N/A,HIGH,libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation,https://avd.aquasec.com/nvd/cve-2026-25210
-fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2026-27135,libnghttp2-14,1.64.0-1.1,N/A,HIGH,nghttp2: nghttp2: Denial of Service via malformed HTTP/2 frames after session termination,https://avd.aquasec.com/nvd/cve-2026-27135
+fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2025-69720,libncurses6,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
 fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2026-29111,libsystemd0,257.9-1~deb13u1,N/A,HIGH,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data,https://avd.aquasec.com/nvd/cve-2026-29111
 fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2025-69720,libtinfo6,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
 fairdatasystems/sevinternal:2026-04-24 (debian 13.4),CVE-2026-29111,libudev1,257.9-1~deb13u1,N/A,HIGH,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data,https://avd.aquasec.com/nvd/cve-2026-29111

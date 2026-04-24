@@ -1,7 +1,5 @@
 Target,VulnerabilityID,Package,InstalledVersion,FixedVersion,Severity,Title,PrimaryURL
-fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-25210,expat,2.7.5,N/A,HIGH,libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation,https://avd.aquasec.com/nvd/cve-2026-25210
-fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-25210,libexpat1,2.7.5,N/A,HIGH,libexpat: libexpat: Information disclosure and data integrity issues due to integer overflow in buffer reallocation,https://avd.aquasec.com/nvd/cve-2026-25210
-fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-27135,libnghttp2-14,1.64.0-1.1,N/A,HIGH,nghttp2: nghttp2: Denial of Service via malformed HTTP/2 frames after session termination,https://avd.aquasec.com/nvd/cve-2026-27135
+fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2025-69720,libncurses6,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-29111,libsystemd0,257.9-1~deb13u1,N/A,HIGH,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data,https://avd.aquasec.com/nvd/cve-2026-29111
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2025-69720,libtinfo6,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-29111,libudev1,257.9-1~deb13u1,N/A,HIGH,systemd: systemd: Arbitrary code execution or Denial of Service via spurious IPC API call data,https://avd.aquasec.com/nvd/cve-2026-29111
@@ -96,17 +94,9 @@ fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-31525,linux-libc-d
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-31526,linux-libc-dev,6.12.74-2,N/A,HIGH,kernel: bpf: Fix exception exit lock checking for subprogs,https://avd.aquasec.com/nvd/cve-2026-31526
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-31527,linux-libc-dev,6.12.74-2,N/A,HIGH,kernel: driver core: platform: use generic driver_override infrastructure,https://avd.aquasec.com/nvd/cve-2026-31527
 fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2026-31528,linux-libc-dev,6.12.74-2,N/A,HIGH,kernel: perf: Make sure to use pmu_ctx->pmu for groups,https://avd.aquasec.com/nvd/cve-2026-31528
+fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2025-69720,ncurses-base,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
+fairdatasystems/sevexternal:2026-04-24 (debian 13.4),CVE-2025-69720,ncurses-bin,6.5+20250216-2,N/A,HIGH,ncurses: ncurses: Buffer overflow vulnerability may lead to arbitrary code execution.,https://avd.aquasec.com/nvd/cve-2025-69720
 Ruby,CVE-2026-34785,rack,3.2.5,"2.2.23, 3.1.21, 3.2.6",HIGH,github.com/rack/rack: Rack: Information disclosure via incorrect static file serving prefix check,https://avd.aquasec.com/nvd/cve-2026-34785
 Ruby,CVE-2026-34827,rack,3.2.5,"3.1.21, 3.2.6",HIGH,rack: Rack: Denial of Service via crafted multipart/form-data requests,https://avd.aquasec.com/nvd/cve-2026-34827
 Ruby,CVE-2026-34829,rack,3.2.5,"2.2.23, 3.1.21, 3.2.6",HIGH,rack: Rack: Denial of Service via unbounded multipart file upload,https://avd.aquasec.com/nvd/cve-2026-34829
 Ruby,CVE-2026-39324,rack-session,2.1.1,2.1.2,CRITICAL,Rack::Session is a session management implementation for Rack. From 2. ...,https://avd.aquasec.com/nvd/cve-2026-39324
-usr/local/bin/gosu,CVE-2025-68121,stdlib,v1.24.4,"1.24.13, 1.25.7, 1.26.0-rc.3",CRITICAL,crypto/tls: crypto/tls: Incorrect certificate validation during TLS session resumption,https://avd.aquasec.com/nvd/cve-2025-68121
-usr/local/bin/gosu,CVE-2025-47907,stdlib,v1.24.4,"1.23.12, 1.24.6",HIGH,database/sql: Postgres Scan Race Condition,https://avd.aquasec.com/nvd/cve-2025-47907
-usr/local/bin/gosu,CVE-2025-58183,stdlib,v1.24.4,"1.24.8, 1.25.2",HIGH,golang: archive/tar: Unbounded allocation when parsing GNU sparse map,https://avd.aquasec.com/nvd/cve-2025-58183
-usr/local/bin/gosu,CVE-2025-61726,stdlib,v1.24.4,"1.24.12, 1.25.6",HIGH,golang: net/url: Memory exhaustion in query parameter parsing in net/url,https://avd.aquasec.com/nvd/cve-2025-61726
-usr/local/bin/gosu,CVE-2025-61728,stdlib,v1.24.4,"1.24.12, 1.25.6",HIGH,golang: archive/zip: Excessive CPU consumption when building archive index in archive/zip,https://avd.aquasec.com/nvd/cve-2025-61728
-usr/local/bin/gosu,CVE-2025-61729,stdlib,v1.24.4,"1.24.11, 1.25.5",HIGH,crypto/x509: golang: Denial of Service due to excessive resource consumption via crafted certificate,https://avd.aquasec.com/nvd/cve-2025-61729
-usr/local/bin/gosu,CVE-2026-25679,stdlib,v1.24.4,"1.25.8, 1.26.1",HIGH,net/url: Incorrect parsing of IPv6 host literals in net/url,https://avd.aquasec.com/nvd/cve-2026-25679
-usr/local/bin/gosu,CVE-2026-32280,stdlib,v1.24.4,"1.25.9, 1.26.2",HIGH,crypto/x509: crypto/tls: golang: Go: Denial of Service vulnerability in certificate chain building,https://avd.aquasec.com/nvd/cve-2026-32280
-usr/local/bin/gosu,CVE-2026-32281,stdlib,v1.24.4,"1.25.9, 1.26.2",HIGH,crypto/x509: golang: Go crypto/x509: Denial of Service via inefficient certificate chain validation,https://avd.aquasec.com/nvd/cve-2026-32281
-usr/local/bin/gosu,CVE-2026-32283,stdlib,v1.24.4,"1.25.9, 1.26.2",HIGH,If one side of the TLS connection sends multiple key update messages p ...,https://avd.aquasec.com/nvd/cve-2026-32283

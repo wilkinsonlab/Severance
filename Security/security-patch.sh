@@ -7,10 +7,6 @@ image="fairdatasystems/severance-internal:latest"
 name="sevinternal"
 docker rm ${name}
 
-###  PROBLEM:  Internal crashes when it has no external to talk to  
-### Catch with a begin/rescue in internal code
-
-
 outputfile=("./security_scan_output/scanresults_${name}_${timestamp}.json")
 echo "running docker run -d --name ${name} ${image} ${outputfile}"
 docker run -d --name ${name} ${image}
