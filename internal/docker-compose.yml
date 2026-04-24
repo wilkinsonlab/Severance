@@ -1,7 +1,7 @@
 services:
 
   internal:
-    image: fairdatasystems/sevinternal:2026-04-16
+    image: fairdatasystems/sevinternal:2026-04-24
     network_mode: host
     volumes:
       - "./queries:/queries"
